@@ -1,10 +1,7 @@
 frappe.ui.form.on('Policy', {
 
 	setup(frm) {
-		frm.page.sidebar.toggle(false);
-
-		$(".container.page-body").css("width", "100%");
-		$('.col.layout-main-section-wrapper').css("padding", "0 7px");
+		frm.page.sidebar.toggle(false); // Hide Sidebar
 	},
 
 	before_load(frm) {

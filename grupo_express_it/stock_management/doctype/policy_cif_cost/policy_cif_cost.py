@@ -21,3 +21,5 @@ class PolicyCIFCost(Document):
 		provider: DF.Data | None
 		type: DF.Literal["", "Flete", "Seguro"]
 	# end: auto-generated types
+
+	pass

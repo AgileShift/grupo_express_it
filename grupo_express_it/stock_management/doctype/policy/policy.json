@@ -1,5 +1,6 @@
 {
  "actions": [],
+ "allow_bulk_edit": 1,
  "allow_copy": 1,
  "allow_import": 1,
  "allow_rename": 1,
@@ -155,6 +156,7 @@
    "hide_border": 1
   },
   {
+   "allow_bulk_edit": 1,
    "fieldname": "cif_costs",
    "fieldtype": "Table",
    "label": "Costos CIF",
@@ -209,6 +211,7 @@
    "label": "Costos de Nacionalizaci\u00f3n"
   },
   {
+   "allow_bulk_edit": 1,
    "fieldname": "nationalization_costs",
    "fieldtype": "Table",
    "label": "Costos de Nacionalizaci\u00f3n",
@@ -322,7 +325,7 @@
    "table_fieldname": "items"
   }
  ],
- "modified": "2025-03-10 00:48:24.365861",
+ "modified": "2026-07-13 15:31:40.733407",
  "modified_by": "Administrator",
  "module": "Stock Management",
  "name": "Policy",
@@ -357,6 +360,7 @@
    "write": 1
   }
  ],
+ "row_format": "Dynamic",
  "show_name_in_global_search": 1,
  "sort_field": "modified",
  "sort_order": "DESC",
