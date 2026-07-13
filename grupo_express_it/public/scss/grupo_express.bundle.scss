@@ -3,10 +3,8 @@
 	// Change the Items Table
 	div[data-fieldname="items"] {
 		.form-grid {
-			//overflow-x: auto;
 
 			.grid-row > .row {
-				//flex-wrap: nowrap;
 
 				.col.grid-static-col {
 
@@ -38,7 +36,6 @@
 						flex: 0 0 8.30%;
 						max-width: 8.30%;
 					}
-
 				}
 			}
 		}
@@ -48,10 +45,6 @@
 	.form-grid {
 		.grid-row > .row {
 
-			.sortable-handle {
-				// Because its a col, it will automatically resize to fit the content
-			}
-
 			.col.grid-static-col[data-fieldtype="Select"], select[data-fieldtype="Select"],
 			.col.grid-static-col[data-fieldtype="Date"], input[data-fieldtype="Date"] {
 				text-align: center !important; // Center this two types of elements
@@ -59,11 +52,13 @@
 		}
 
 		> .grid-footer-row {
-			border-top: 3px solid var(--table-border-color);
+			.grid-row {
+				border-top: 3px solid var(--table-border-color);
+			}
 
 			.grid-row-check,
-			.row-index > span {
-				display: none; // Hide this, is unnecessary
+			.btn-open-row {
+				visibility: hidden; // Hide these controls without collapsing their columns
 			}
 
 			> .grid-row > .row > .col.grid-static-col {
@@ -75,7 +70,6 @@
 					}
 				}
 			}
-
 		}
 	}
 }
