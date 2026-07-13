@@ -4,25 +4,40 @@ app_publisher = "Agile Shift"
 app_description = "Invoice Tool"
 app_email = "contacto@gruporeal.org"
 app_license = "MIT"
+
+# Apps
+# ------------------
+
 required_apps = [
 	'shridarpatil/frappe_whatsapp'
 ]
 
+# Each item in the list will be shown as an app in the apps page
+# add_to_apps_screen = [
+# 	{
+# 		"name": "grupo_express",
+# 		"logo": "/assets/grupo_express/logo.png",
+# 		"title": "Grupo Express IT",
+# 		"route": "/grupo_express",
+# 		"has_permission": "grupo_express.api.permission.has_app_permission"
+# 	}
+# ]
+
 # Includes in <head>
 # ------------------
 
-# include js, css files in header of desk.html
+# include js, CSS files in header of desk.html
 app_include_css = "grupo_express.bundle.css"
 app_include_js = "grupo_express.bundle.js"
 
-# include js, css files in header of web template
+# include js, CSS files in header of web template
 # web_include_css = "/assets/grupo_express_it/css/grupo_express_it.css"
 # web_include_js = "/assets/grupo_express_it/js/grupo_express_it.js"
 
 # include custom scss in every website theme (without file extension ".scss")
 # website_theme_scss = "grupo_express_it/public/scss/website"
 
-# include js, css files in header of web form
+# include js, CSS files in header of web form
 # webform_include_js = {"doctype": "public/js/doctype.js"}
 # webform_include_css = {"doctype": "public/css/doctype.css"}
 
@@ -43,7 +58,7 @@ app_include_js = "grupo_express.bundle.js"
 
 # website user home page (by Role)
 # role_home_page = {
-#	"Role": "home_page"
+#    "Role": "home_page"
 # }
 
 # Generators
@@ -93,7 +108,7 @@ override_doctype_class = {
 # 		"on_update": "method",
 # 		"on_cancel": "method",
 # 		"on_trash": "method"
-#	}
+#   }
 # }
 
 # Scheduled Tasks
@@ -140,4 +155,13 @@ override_doctype_class = {
 #
 # auto_cancel_exempted_doctypes = ["Auto Repeat"]
 
+# Automatically update python controller files with type annotations for this app.
 export_python_type_annotations = True
+
+# Require all whitelisted methods to have type annotations
+require_type_annotated_api_methods = True
+
+# Translation
+# ------------
+# List of apps whose translatable strings should be excluded from this app's translations.
+ignore_translatable_strings_from = ["frappe"]
