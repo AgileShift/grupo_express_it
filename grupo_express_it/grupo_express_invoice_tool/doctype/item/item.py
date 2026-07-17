@@ -13,4 +13,5 @@ class Item(Document):
 		item_name: DF.Data
 		type: DF.Literal["", "Regular", "Contenedor", "Complemento"]
 	# end: auto-generated types
+
 	pass

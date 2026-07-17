@@ -1,5 +1,6 @@
 {
  "actions": [],
+ "allow_bulk_edit": 1,
  "allow_rename": 1,
  "autoname": "field:customer_name",
  "creation": "2024-01-08 11:01:58.359304",
@@ -49,7 +50,7 @@
    "link_fieldname": "customer"
   }
  ],
- "modified": "2024-01-17 11:23:29.180025",
+ "modified": "2026-07-17 15:17:20.473537",
  "modified_by": "Administrator",
  "module": "Stock Management",
  "name": "Stock Customer",
@@ -82,6 +83,7 @@
    "write": 1
   }
  ],
+ "row_format": "Dynamic",
  "sort_field": "modified",
  "sort_order": "DESC",
  "states": []

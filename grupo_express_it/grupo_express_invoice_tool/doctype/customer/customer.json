@@ -1,5 +1,6 @@
 {
  "actions": [],
+ "allow_bulk_edit": 1,
  "allow_copy": 1,
  "allow_import": 1,
  "allow_rename": 1,
@@ -95,7 +96,7 @@
    "link_fieldname": "customer"
   }
  ],
- "modified": "2023-12-26 16:12:54.873448",
+ "modified": "2026-07-17 14:00:28.027957",
  "modified_by": "Administrator",
  "module": "Grupo Express Invoice Tool",
  "name": "Customer",
@@ -115,6 +116,7 @@
    "write": 1
   }
  ],
+ "row_format": "Dynamic",
  "search_fields": "code,full_name,aliases,mobile_no",
  "show_name_in_global_search": 1,
  "sort_field": "modified",

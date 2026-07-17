@@ -29,4 +29,5 @@ class SalesInvoiceItem(Document):
 		valuation_rate: DF.Currency
 		vendor: DF.Data | None
 	# end: auto-generated types
+
 	pass

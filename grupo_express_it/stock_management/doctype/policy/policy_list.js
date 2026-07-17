@@ -1,12 +1,10 @@
-frappe.listview_settings['Policy'] = {
+frappe.listview_settings["Policy"] = {
 
 	// If this is set, we can manipulate those two indicators status
 	has_indicator_for_draft: true,
 	has_indicator_for_cancelled: true,
 
 	onload(listview) {
-		listview.page.sidebar.toggle(false);
-
 		listview.page.add_action_item('Descargar Excel Individual', () => {
 			let docs = listview.get_checked_items(true);
 

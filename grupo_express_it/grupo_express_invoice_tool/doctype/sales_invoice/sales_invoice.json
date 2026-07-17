@@ -1,5 +1,6 @@
 {
  "actions": [],
+ "allow_bulk_edit": 1,
  "allow_copy": 1,
  "autoname": "format:Recibo No. {######}",
  "creation": "2021-01-13 13:14:25.985768",
@@ -149,11 +150,11 @@
    "link_fieldname": "reference_name"
   }
  ],
- "modified": "2025-11-03 14:37:12.088482",
+ "modified": "2026-07-17 14:07:58.487518",
  "modified_by": "Administrator",
  "module": "Grupo Express Invoice Tool",
  "name": "Sales Invoice",
- "naming_rule": "Expression",
+ "naming_rule": "Expression (old style)",
  "owner": "Administrator",
  "permissions": [
   {

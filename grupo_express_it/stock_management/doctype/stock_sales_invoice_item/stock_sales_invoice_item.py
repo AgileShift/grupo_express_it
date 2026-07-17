@@ -23,4 +23,5 @@ class StockSalesInvoiceItem(Document):
 		unit_price: DF.Currency
 		uom: DF.Literal["", "Unidad", "Docenas", "Millar", "Gruesas", "Galones", "Yardas", "Metros", "Rollo", "Set", "Kit", "Cajas", "Paquetes", "Pieza", "Pares", "KG", "Libras", "Bolsas", "Juego", "Jarra"]
 	# end: auto-generated types
+
 	pass

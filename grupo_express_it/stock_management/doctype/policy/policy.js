@@ -1,4 +1,4 @@
-frappe.ui.form.on('Policy', {
+frappe.ui.form.on("Policy", {
 
 	setup(frm) {
 		frm.page.sidebar.toggle(false); // Hide Sidebar
@@ -187,7 +187,7 @@ frappe.ui.form.on("Policy Item", {
 	fob_unit_price: (frm, cdt, cdn) => frm.events.calculate_items_totals(frm, locals[cdt][cdn])
 });
 
-frappe.ui.form.on('Policy CIF Cost', {
+frappe.ui.form.on("Policy CIF Cost", {
 	cif_costs_remove: (frm) => frm.events.calculate_cif_costs(frm),
 	cif_costs_add: (frm, cdt, cdn) => {
 		locals[cdt][cdn].exchange_rate = frm.doc.exchange_rate; // Set Exchange Rate on Row Add
@@ -201,7 +201,7 @@ frappe.ui.form.on('Policy CIF Cost', {
 	amount_usd: (frm, cdt, cdn) => frm.events.calculate_cif_costs(frm, locals[cdt][cdn]) // Recalculate Totals(CIF and Items)
 });
 
-frappe.ui.form.on('Policy Nationalization Cost', {
+frappe.ui.form.on("Policy Nationalization Cost", {
 	nationalization_costs_remove: (frm) => frm.events.calculate_nationalization_costs(frm),
 
 	provider: (frm, cdt, cdn) => frm.events.sanitize_string_field(locals[cdt][cdn], 'provider', true),
@@ -213,4 +213,3 @@ frappe.ui.form.on('Policy Nationalization Cost', {
 	exchange_rate: (frm, cdt, cdn) => frm.trigger('amount_nio', cdt, cdn),
 	amount_nio: (frm, cdt, cdn) => frm.events.calculate_nationalization_costs(frm, locals[cdt][cdn]) // Recalculate Item Fields and Form Totals
 });
-// 160 | 235 | 242

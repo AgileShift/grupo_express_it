@@ -19,4 +19,5 @@ class Customer(Document):
 		pricing_rules: DF.Table[PricingRule]
 		ruc: DF.Data | None
 	# end: auto-generated types
+
 	pass

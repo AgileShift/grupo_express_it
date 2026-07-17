@@ -1,4 +1,4 @@
-frappe.ui.form.on('Sales Invoice', {
+frappe.ui.form.on("Sales Invoice", {
 	setup(frm) {
 		frm.page.sidebar.toggle(false);
 	},

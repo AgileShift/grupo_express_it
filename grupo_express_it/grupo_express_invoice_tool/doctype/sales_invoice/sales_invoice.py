@@ -4,6 +4,7 @@ import frappe
 from frappe.model.document import Document
 from frappe.utils import in_words
 
+
 class SalesInvoice(Document):
 	# begin: auto-generated types
 	# This code is auto-generated. Do not modify anything in this block.
@@ -23,6 +24,7 @@ class SalesInvoice(Document):
 		total: DF.Currency
 		whatsapp: DF.Check
 	# end: auto-generated types
+
 	pass
 
 

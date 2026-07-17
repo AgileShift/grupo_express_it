@@ -1,4 +1,4 @@
-frappe.ui.form.on('Customer', {
+frappe.ui.form.on("Customer", {
 	setup(frm) {
 		frm.page.sidebar.toggle(false);
 	},
@@ -17,8 +17,4 @@ frappe.ui.form.on('Customer', {
 	onload_post_render(frm) {
 		frm.fields_dict['pricing_rules'].grid.set_multiple_add('item'); // This uses our custom query.
 	}
-});
-
-frappe.ui.form.on('Pricing Rule', {
-	//TODO: Dynamically change the description based on type of margin
 });
