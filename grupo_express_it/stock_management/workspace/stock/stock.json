@@ -1,6 +1,7 @@
 {
+ "app": "grupo_express_it",
  "charts": [],
- "content": "[{\"id\":\"K7h5J-Fhad\",\"type\":\"header\",\"data\":{\"text\":\"<span class=\\\"h4\\\">Stock Management</span><br>\",\"col\":12}},{\"id\":\"PYfC6GMfoO\",\"type\":\"spacer\",\"data\":{\"col\":12}},{\"id\":\"CPzba7YRYY\",\"type\":\"shortcut\",\"data\":{\"shortcut_name\":\"Policy\",\"col\":4}},{\"id\":\"e9Y-2Y4eS5\",\"type\":\"shortcut\",\"data\":{\"shortcut_name\":\"Stock Sales Invoice\",\"col\":4}},{\"id\":\"B_O_iZoDZe\",\"type\":\"shortcut\",\"data\":{\"shortcut_name\":\"Customer\",\"col\":3}},{\"id\":\"7AymVTzmSP\",\"type\":\"spacer\",\"data\":{\"col\":12}},{\"id\":\"JBObFU6ut1\",\"type\":\"spacer\",\"data\":{\"col\":12}},{\"id\":\"mzFtkToOsu\",\"type\":\"header\",\"data\":{\"text\":\"<span class=\\\"h4\\\"><b>Reportes <br></b></span>\",\"col\":12}},{\"id\":\"nnTpiAcpEm\",\"type\":\"card\",\"data\":{\"card_name\":\"Reportes de Polizas\",\"col\":4}}]",
+ "content": "[{\"id\":\"K7h5J-Fhad\",\"type\":\"header\",\"data\":{\"text\":\"<span class=\\\"h4\\\">Stock Management</span>\",\"col\":12}},{\"id\":\"PYfC6GMfoO\",\"type\":\"spacer\",\"data\":{\"col\":12}},{\"id\":\"CPzba7YRYY\",\"type\":\"shortcut\",\"data\":{\"shortcut_name\":\"Policy\",\"col\":5}},{\"id\":\"e9Y-2Y4eS5\",\"type\":\"shortcut\",\"data\":{\"shortcut_name\":\"Stock Sales Invoice\",\"col\":4}},{\"id\":\"B_O_iZoDZe\",\"type\":\"shortcut\",\"data\":{\"shortcut_name\":\"Customer\",\"col\":3}},{\"id\":\"7AymVTzmSP\",\"type\":\"spacer\",\"data\":{\"col\":12}},{\"id\":\"JBObFU6ut1\",\"type\":\"spacer\",\"data\":{\"col\":12}},{\"id\":\"mzFtkToOsu\",\"type\":\"header\",\"data\":{\"text\":\"<span class=\\\"h4\\\"><b>Reportes <br></b></span>\",\"col\":12}},{\"id\":\"nnTpiAcpEm\",\"type\":\"card\",\"data\":{\"card_name\":\"Reportes de Polizas\",\"col\":4}}]",
  "creation": "2023-07-26 22:50:29.445737",
  "custom_blocks": [],
  "docstatus": 0,
@@ -44,7 +45,7 @@
    "type": "Link"
   }
  ],
- "modified": "2025-03-06 11:45:38.697316",
+ "modified": "2026-07-17 14:12:35.878315",
  "modified_by": "Administrator",
  "module": "Stock Management",
  "name": "Stock",
@@ -82,5 +83,6 @@
    "type": "DocType"
   }
  ],
- "title": "Stock"
+ "title": "Stock",
+ "type": "Workspace"
 }

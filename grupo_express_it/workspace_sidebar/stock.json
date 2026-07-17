@@ -1,0 +1,65 @@
+{
+ "app": "grupo_express_it",
+ "creation": "2026-07-13 13:14:54.902391",
+ "docstatus": 0,
+ "doctype": "Workspace Sidebar",
+ "header_icon": "stock",
+ "idx": 0,
+ "items": [
+  {
+   "child": 0,
+   "collapsible": 1,
+   "icon": "home",
+   "indent": 0,
+   "keep_closed": 0,
+   "label": "Home",
+   "link_to": "Stock",
+   "link_type": "Workspace",
+   "show_arrow": 0,
+   "type": "Link"
+  },
+  {
+   "child": 0,
+   "collapsible": 1,
+   "icon": "liabilities",
+   "indent": 0,
+   "keep_closed": 0,
+   "label": "Policy",
+   "link_to": "Policy",
+   "link_type": "DocType",
+   "show_arrow": 0,
+   "type": "Link"
+  },
+  {
+   "child": 0,
+   "collapsible": 1,
+   "icon": "shopping-cart",
+   "indent": 0,
+   "keep_closed": 0,
+   "label": "Stock Sales Invoice",
+   "link_to": "Stock Sales Invoice",
+   "link_type": "DocType",
+   "show_arrow": 0,
+   "type": "Link"
+  },
+  {
+   "child": 0,
+   "collapsible": 1,
+   "icon": "customer",
+   "indent": 0,
+   "keep_closed": 0,
+   "label": "Customer",
+   "link_to": "Stock Customer",
+   "link_type": "DocType",
+   "show_arrow": 0,
+   "type": "Link"
+  }
+ ],
+ "modified": "2026-07-17 15:22:45.849327",
+ "modified_by": "Administrator",
+ "module": "Stock Management",
+ "name": "Stock",
+ "owner": "Administrator",
+ "standard": 1,
+ "title": "Stock"
+}

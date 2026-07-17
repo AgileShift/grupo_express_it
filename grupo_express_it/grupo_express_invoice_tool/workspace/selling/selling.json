@@ -1,6 +1,7 @@
 {
+ "app": "grupo_express_it",
  "charts": [],
- "content": "[{\"id\":\"D9STkrh5Zg\",\"type\":\"header\",\"data\":{\"text\":\"<span class=\\\"h4\\\">Selling Management<br></span>\",\"col\":12}},{\"id\":\"cqst0X5msd\",\"type\":\"spacer\",\"data\":{\"col\":12}},{\"id\":\"38uAzBALhp\",\"type\":\"shortcut\",\"data\":{\"shortcut_name\":\"Sales Invoice\",\"col\":4}},{\"id\":\"eR0PhHkvaq\",\"type\":\"shortcut\",\"data\":{\"shortcut_name\":\"Customer\",\"col\":4}},{\"id\":\"cLGRkzzNe5\",\"type\":\"shortcut\",\"data\":{\"shortcut_name\":\"Item\",\"col\":4}},{\"id\":\"UJZNM6duWR\",\"type\":\"spacer\",\"data\":{\"col\":12}},{\"id\":\"mbQPMtX7Pc\",\"type\":\"card\",\"data\":{\"card_name\":\"Reportes\",\"col\":4}}]",
+ "content": "[{\"id\":\"D9STkrh5Zg\",\"type\":\"header\",\"data\":{\"text\":\"<span class=\\\"h4\\\">Selling Management</span>\",\"col\":12}},{\"id\":\"cqst0X5msd\",\"type\":\"spacer\",\"data\":{\"col\":12}},{\"id\":\"38uAzBALhp\",\"type\":\"shortcut\",\"data\":{\"shortcut_name\":\"Sales Invoice\",\"col\":4}},{\"id\":\"eR0PhHkvaq\",\"type\":\"shortcut\",\"data\":{\"shortcut_name\":\"Customer\",\"col\":4}},{\"id\":\"cLGRkzzNe5\",\"type\":\"shortcut\",\"data\":{\"shortcut_name\":\"Item\",\"col\":4}},{\"id\":\"UJZNM6duWR\",\"type\":\"spacer\",\"data\":{\"col\":12}},{\"id\":\"mbQPMtX7Pc\",\"type\":\"card\",\"data\":{\"card_name\":\"Reportes\",\"col\":4}}]",
  "creation": "2021-04-07 09:08:54.888627",
  "custom_blocks": [],
  "docstatus": 0,
@@ -33,7 +34,7 @@
    "type": "Link"
   }
  ],
- "modified": "2025-03-06 11:44:21.887558",
+ "modified": "2026-07-17 14:11:39.068167",
  "modified_by": "Administrator",
  "module": "Grupo Express Invoice Tool",
  "name": "Selling",
@@ -69,5 +70,6 @@
    "type": "DocType"
   }
  ],
- "title": "Selling"
+ "title": "Selling",
+ "type": "Workspace"
 }

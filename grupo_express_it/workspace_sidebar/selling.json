@@ -1,0 +1,65 @@
+{
+ "app": "grupo_express_it",
+ "creation": "2026-07-13 13:14:54.872356",
+ "docstatus": 0,
+ "doctype": "Workspace Sidebar",
+ "header_icon": "sell",
+ "idx": 0,
+ "items": [
+  {
+   "child": 0,
+   "collapsible": 1,
+   "icon": "sell",
+   "indent": 0,
+   "keep_closed": 0,
+   "label": "Home",
+   "link_to": "Selling",
+   "link_type": "Workspace",
+   "show_arrow": 0,
+   "type": "Link"
+  },
+  {
+   "child": 0,
+   "collapsible": 1,
+   "icon": "receipt-text",
+   "indent": 0,
+   "keep_closed": 0,
+   "label": "Sales Invoice",
+   "link_to": "Sales Invoice",
+   "link_type": "DocType",
+   "show_arrow": 0,
+   "type": "Link"
+  },
+  {
+   "child": 0,
+   "collapsible": 1,
+   "icon": "circle-user-round",
+   "indent": 0,
+   "keep_closed": 0,
+   "label": "Customer",
+   "link_to": "Customer",
+   "link_type": "DocType",
+   "show_arrow": 0,
+   "type": "Link"
+  },
+  {
+   "child": 0,
+   "collapsible": 1,
+   "icon": "box",
+   "indent": 0,
+   "keep_closed": 0,
+   "label": "Item",
+   "link_to": "Item",
+   "link_type": "DocType",
+   "show_arrow": 0,
+   "type": "Link"
+  }
+ ],
+ "modified": "2026-07-17 14:45:56.854125",
+ "modified_by": "Administrator",
+ "module": "Grupo Express Invoice Tool",
+ "name": "Selling",
+ "owner": "Administrator",
+ "standard": 1,
+ "title": "Selling"
+}
