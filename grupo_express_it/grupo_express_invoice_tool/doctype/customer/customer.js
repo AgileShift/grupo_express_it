@@ -7,7 +7,7 @@ frappe.ui.form.on("Customer", {
 		frm.set_query('item', 'pricing_rules', (doc) => {
 			return {
 				filters: {
-					item_name: ['not in', doc.pricing_rules.map(p => p.item)], // Show products that are not the list
+					item_name: ['not in', doc.pricing_rules.map(p => p.item).filter(Boolean)], // Show products that are not the list
 					type: ['not in', ['Complemento']]
 				}
 			};
