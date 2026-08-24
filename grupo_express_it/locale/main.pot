@@ -7,8 +7,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: Grupo Express Invoice Tool VERSION\n"
 "Report-Msgid-Bugs-To: contacto@gruporeal.org\n"
-"POT-Creation-Date: 2026-08-24 08:03-0615\n"
-"PO-Revision-Date: 2026-08-24 08:03-0615\n"
+"POT-Creation-Date: 2026-08-24 16:07-0615\n"
+"PO-Revision-Date: 2026-08-24 16:07-0615\n"
 "Last-Translator: contacto@gruporeal.org\n"
 "Language-Team: contacto@gruporeal.org\n"
 "MIME-Version: 1.0\n"
@@ -219,6 +219,12 @@ msgstr ""
 msgid "Customer Name"
 msgstr ""
 
+#. Option for the 'Type' (Select) field in DocType 'Policy Nationalization
+#. Cost'
+#: grupo_express_it/stock_management/doctype/policy_nationalization_cost/policy_nationalization_cost.json
+msgid "Customs Taxes"
+msgstr ""
+
 #. Option for the 'Type' (Select) field in DocType 'Pricing Rule'
 #. Option for the 'UOM' (Select) field in DocType 'Policy Item'
 #. Option for the 'UOM' (Select) field in DocType 'Stock Sales Invoice Item'
@@ -255,11 +261,6 @@ msgstr ""
 msgid "Facturas de Venta"
 msgstr ""
 
-#. Option for the 'Type' (Select) field in DocType 'Policy CIF Cost'
-#: grupo_express_it/stock_management/doctype/policy_cif_cost/policy_cif_cost.json
-msgid "Flete"
-msgstr ""
-
 #. Label of the freight_cost (Currency) field in DocType 'Policy Item'
 #: grupo_express_it/stock_management/doctype/policy_item/policy_item.json
 msgid "Flete $"
@@ -273,6 +274,11 @@ msgstr ""
 #. Description of the 'Policy' (Data) field in DocType 'Policy'
 #: grupo_express_it/stock_management/doctype/policy/policy.json
 msgid "Formato: L - #####"
+msgstr ""
+
+#. Option for the 'Type' (Select) field in DocType 'Policy CIF Cost'
+#: grupo_express_it/stock_management/doctype/policy_cif_cost/policy_cif_cost.json
+msgid "Freight"
 msgstr ""
 
 #. Option for the 'Status' (Select) field in DocType 'Policy'
@@ -336,10 +342,7 @@ msgid "Importadora Internacional, S.A."
 msgstr ""
 
 #. Description of the 'Impuestos C$' (Currency) field in DocType 'Policy Item'
-#. Option for the 'Type' (Select) field in DocType 'Policy Nationalization
-#. Cost'
 #: grupo_express_it/stock_management/doctype/policy_item/policy_item.json
-#: grupo_express_it/stock_management/doctype/policy_nationalization_cost/policy_nationalization_cost.json
 msgid "Impuestos Aduaneros"
 msgstr ""
 
@@ -356,6 +359,11 @@ msgstr ""
 #. Description of the 'Alias' (Small Text) field in DocType 'Customer'
 #: grupo_express_it/grupo_express_invoice_tool/doctype/customer/customer.json
 msgid "Ingrese la lista de opciones, cada una en una nueva línea."
+msgstr ""
+
+#. Option for the 'Type' (Select) field in DocType 'Policy CIF Cost'
+#: grupo_express_it/stock_management/doctype/policy_cif_cost/policy_cif_cost.json
+msgid "Insurance"
 msgstr ""
 
 #. Label of the section_break_rcrc (Section Break) field in DocType 'Policy
@@ -510,15 +518,15 @@ msgstr ""
 msgid "Monto de valoración $"
 msgstr ""
 
-#. Option for the 'Type' (Select) field in DocType 'Policy Nationalization
-#. Cost'
-#: grupo_express_it/stock_management/doctype/policy_nationalization_cost/policy_nationalization_cost.json
-msgid "Nacionalizacion"
-msgstr ""
-
 #. Label of the nationalization_total (Currency) field in DocType 'Policy Item'
 #: grupo_express_it/stock_management/doctype/policy_item/policy_item.json
 msgid "Nacionalización C$"
+msgstr ""
+
+#. Option for the 'Type' (Select) field in DocType 'Policy Nationalization
+#. Cost'
+#: grupo_express_it/stock_management/doctype/policy_nationalization_cost/policy_nationalization_cost.json
+msgid "Nationalization"
 msgstr ""
 
 #. Option for the 'Status' (Select) field in DocType 'Policy'
@@ -677,11 +685,6 @@ msgstr ""
 msgid "Sales Invoice Item"
 msgstr ""
 
-#. Option for the 'Type' (Select) field in DocType 'Policy CIF Cost'
-#: grupo_express_it/stock_management/doctype/policy_cif_cost/policy_cif_cost.json
-msgid "Seguro"
-msgstr ""
-
 #. Label of the insurance_cost (Currency) field in DocType 'Policy Item'
 #: grupo_express_it/stock_management/doctype/policy_item/policy_item.json
 msgid "Seguro $"
@@ -746,7 +749,7 @@ msgstr ""
 msgid "Supplier"
 msgstr ""
 
-#. Label of the exchange_rate (Currency) field in DocType 'Policy'
+#. Label of the exchange_rate (Float) field in DocType 'Policy'
 #. Label of the exchange_rate (Currency) field in DocType 'Policy CIF Cost'
 #. Label of the exchange_rate (Currency) field in DocType 'Policy
 #. Nationalization Cost'

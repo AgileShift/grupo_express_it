@@ -19,7 +19,7 @@ class PolicyCIFCost(Document):
 		parenttype: DF.Data
 		posting_date: DF.Date | None
 		provider: DF.Data | None
-		type: DF.Literal["", "Flete", "Seguro"]
+		type: DF.Literal["", "Freight", "Insurance"]
 	# end: auto-generated types
 
 	pass

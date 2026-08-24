@@ -75,7 +75,7 @@ class Policy(Document):
 			frappe.throw("<b>Costos de Nacionalización</b>: Tiene valores en 0.")
 
 		if not self.total_customs_taxes:
-			frappe.throw("<b>Costos de Nacionalización</b>: No Tiene costos de Impuestos Aduaneros.")
+			frappe.throw("<b>Costos de Nacionalización</b>: No Tiene Impuestos Aduaneros.")
 
 		if not self.total_nationalization_costs:
 			frappe.throw("<b>Costos de Nacionalización</b>: No Tiene costos de Nacionalización.")
@@ -104,9 +104,9 @@ class Policy(Document):
 			cif.amount_nio = cif.amount_usd * cif.exchange_rate  # re-calculate Amount NIO(readonly). Has no effect on Totals
 
 			total_cif += cif.amount_usd
-			if cif.type == 'Flete':
+			if cif.type == 'Freight':
 				total_freight += cif.amount_usd
-			elif cif.type == 'Seguro':
+			elif cif.type == 'Insurance':
 				total_insurance += cif.amount_usd
 
 		if total_cif != (total_freight + total_insurance):
@@ -129,9 +129,9 @@ class Policy(Document):
 				nationalization.amount_nio = 0.00
 
 			grand_total_nationalization += nationalization.amount_nio
-			if nationalization.type == 'Impuestos Aduaneros':
+			if nationalization.type == 'Customs Taxes':
 				total_customs_taxes += nationalization.amount_nio
-			elif nationalization.type == 'Nacionalizacion':
+			elif nationalization.type == 'Nationalization':
 				total_nationalization_costs += nationalization.amount_nio
 
 		if grand_total_nationalization != (total_customs_taxes + total_nationalization_costs):
@@ -193,6 +193,6 @@ class Policy(Document):
 
 	@frappe.whitelist(allow_guest=False)
 	def recalculate(self):
-		return self.before_validate()
+		self.before_validate()
 
-# 62 | 5 4 10
+# 62 | 5 14 46

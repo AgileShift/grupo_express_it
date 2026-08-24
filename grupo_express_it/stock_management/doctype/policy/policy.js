@@ -6,16 +6,16 @@ frappe.ui.form.on("Policy", {
 
 	before_load(frm) {
 		if (frm.is_new()) {  // Adding default Rows
-			frm.add_child('cif_costs', {type: 'Flete'});
-			frm.add_child('cif_costs', {type: 'Seguro'});
-			frm.add_child('nationalization_costs', {type: 'Impuestos Aduaneros'});
-			frm.add_child('nationalization_costs', {type: 'Nacionalizacion'});
+			frm.add_child('cif_costs', {type: 'Freight'});
+			frm.add_child('cif_costs', {type: 'Insurance'});
+			frm.add_child('nationalization_costs', {type: 'Customs Taxes'});
+			frm.add_child('nationalization_costs', {type: 'Nationalization'});
 		}
 	},
 
 	refresh(frm) {
 		if (!frm.is_new()) {
-			frm.add_custom_button('Descargar Excel Individual', () => {
+			frm.add_custom_button('Download Excel', () => {
 				window.open(`/api/method/grupo_express_it.stock_management.doctype.policy.excel.unique.download?policy=${frm.doc.name}`);
 			});
 		}

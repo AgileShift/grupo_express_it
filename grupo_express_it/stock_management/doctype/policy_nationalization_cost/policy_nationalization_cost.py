@@ -21,7 +21,7 @@ class PolicyNationalizationCost(Document):
 		posting_date: DF.Date | None
 		provider: DF.Data | None
 		reference: DF.Data | None
-		type: DF.Literal["", "Impuestos Aduaneros", "Nacionalizacion"]
+		type: DF.Literal["", "Customs Taxes", "Nationalization"]
 	# end: auto-generated types
 
 	pass

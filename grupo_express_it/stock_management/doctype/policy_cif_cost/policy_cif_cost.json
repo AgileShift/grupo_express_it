@@ -34,7 +34,7 @@
    "fieldtype": "Select",
    "in_list_view": 1,
    "label": "Type",
-   "options": "\nFlete\nSeguro",
+   "options": "\nFreight\nInsurance",
    "reqd": 1
   },
   {
@@ -109,7 +109,7 @@
  "index_web_pages_for_search": 1,
  "istable": 1,
  "links": [],
- "modified": "2026-07-17 15:12:00.504533",
+ "modified": "2026-08-24 15:53:48.808600",
  "modified_by": "Administrator",
  "module": "Stock Management",
  "name": "Policy CIF Cost",
