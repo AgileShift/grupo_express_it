@@ -1,7 +1,6 @@
 {
  "actions": [],
  "allow_bulk_edit": 1,
- "allow_copy": 1,
  "allow_import": 1,
  "allow_rename": 1,
  "creation": "2023-07-26 19:17:37.104782",
@@ -25,6 +24,7 @@
   "column_break_niyc",
   "posting_date",
   "exchange_rate",
+  "currency",
   "section_break_tcxra",
   "items",
   "section_break_txgw",
@@ -95,7 +95,7 @@
    "fieldname": "provider",
    "fieldtype": "Data",
    "in_standard_filter": 1,
-   "label": "Provider",
+   "label": "Supplier",
    "reqd": 1
   },
   {
@@ -228,11 +228,11 @@
    "read_only": 1
   },
   {
+   "bold": 1,
    "fieldname": "exchange_rate",
-   "fieldtype": "Currency",
+   "fieldtype": "Float",
    "label": "Tasa de Cambio C$",
    "non_negative": 1,
-   "options": "Currency:NIO:name",
    "precision": "6",
    "reqd": 1
   },
@@ -313,6 +313,20 @@
    "fieldname": "valor_fob_column",
    "fieldtype": "Column Break",
    "label": "Costo FOB"
+  },
+  {
+   "default": "NIO",
+   "fieldname": "currency",
+   "fieldtype": "Link",
+   "hidden": 1,
+   "label": "Currency",
+   "link_filters": "[[\"Currency\",\"enabled\",\"=\",1]]",
+   "options": "Currency",
+   "print_hide": 1,
+   "read_only": 1,
+   "report_hide": 1,
+   "reqd": 1,
+   "set_only_once": 1
   }
  ],
  "is_submittable": 1,
@@ -325,7 +339,7 @@
    "table_fieldname": "items"
   }
  ],
- "modified": "2026-07-17 15:10:52.385713",
+ "modified": "2026-08-24 14:10:44.227797",
  "modified_by": "Administrator",
  "module": "Stock Management",
  "name": "Policy",
