@@ -1,7 +1,7 @@
 {
  "app": "grupo_express_it",
  "charts": [],
- "content": "[{\"id\":\"K7h5J-Fhad\",\"type\":\"header\",\"data\":{\"text\":\"<span class=\\\"h4\\\">Stock Management</span>\",\"col\":12}},{\"id\":\"PYfC6GMfoO\",\"type\":\"spacer\",\"data\":{\"col\":12}},{\"id\":\"CPzba7YRYY\",\"type\":\"shortcut\",\"data\":{\"shortcut_name\":\"Policy\",\"col\":5}},{\"id\":\"e9Y-2Y4eS5\",\"type\":\"shortcut\",\"data\":{\"shortcut_name\":\"Stock Sales Invoice\",\"col\":4}},{\"id\":\"B_O_iZoDZe\",\"type\":\"shortcut\",\"data\":{\"shortcut_name\":\"Customer\",\"col\":3}},{\"id\":\"7AymVTzmSP\",\"type\":\"spacer\",\"data\":{\"col\":12}},{\"id\":\"JBObFU6ut1\",\"type\":\"spacer\",\"data\":{\"col\":12}},{\"id\":\"mzFtkToOsu\",\"type\":\"header\",\"data\":{\"text\":\"<span class=\\\"h4\\\"><b>Reportes <br></b></span>\",\"col\":12}},{\"id\":\"nnTpiAcpEm\",\"type\":\"card\",\"data\":{\"card_name\":\"Reportes de Polizas\",\"col\":4}}]",
+ "content": "[{\"id\":\"DJSlGs5Q2x\",\"type\":\"header\",\"data\":{\"text\":\"<span class=\\\"h4\\\"><b>Stock Management</b></span>\",\"col\":12}},{\"id\":\"PYfC6GMfoO\",\"type\":\"spacer\",\"data\":{\"col\":12}},{\"id\":\"CPzba7YRYY\",\"type\":\"shortcut\",\"data\":{\"shortcut_name\":\"Policy\",\"col\":5}},{\"id\":\"e9Y-2Y4eS5\",\"type\":\"shortcut\",\"data\":{\"shortcut_name\":\"Stock Sales Invoice\",\"col\":4}},{\"id\":\"B_O_iZoDZe\",\"type\":\"shortcut\",\"data\":{\"shortcut_name\":\"Customer\",\"col\":3}},{\"id\":\"7AymVTzmSP\",\"type\":\"spacer\",\"data\":{\"col\":12}},{\"id\":\"JBObFU6ut1\",\"type\":\"spacer\",\"data\":{\"col\":12}},{\"id\":\"Y6fHNAB9ux\",\"type\":\"header\",\"data\":{\"text\":\"<span class=\\\"h4\\\"><b>Reports</b></span>\",\"col\":12}},{\"id\":\"nnTpiAcpEm\",\"type\":\"card\",\"data\":{\"card_name\":\"Reports\",\"col\":4}}]",
  "creation": "2023-07-26 22:50:29.445737",
  "custom_blocks": [],
  "docstatus": 0,
@@ -16,7 +16,7 @@
   {
    "hidden": 0,
    "is_query_report": 0,
-   "label": "Reportes de Polizas",
+   "label": "Reports",
    "link_count": 2,
    "link_type": "DocType",
    "onboard": 0,
@@ -45,7 +45,7 @@
    "type": "Link"
   }
  ],
- "modified": "2026-07-17 14:12:35.878315",
+ "modified": "2026-08-23 10:16:59.091620",
  "modified_by": "Administrator",
  "module": "Stock Management",
  "name": "Stock",
