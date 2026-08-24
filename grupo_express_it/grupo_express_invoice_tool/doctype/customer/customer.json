@@ -28,7 +28,7 @@
    "in_global_search": 1,
    "in_list_view": 1,
    "in_standard_filter": 1,
-   "label": "Mobile No",
+   "label": "Mobile Number",
    "options": "Phone"
   },
   {
@@ -96,7 +96,7 @@
    "link_fieldname": "customer"
   }
  ],
- "modified": "2026-07-17 14:00:28.027957",
+ "modified": "2026-08-22 16:30:24.336553",
  "modified_by": "Administrator",
  "module": "Grupo Express Invoice Tool",
  "name": "Customer",

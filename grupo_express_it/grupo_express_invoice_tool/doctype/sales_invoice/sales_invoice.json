@@ -64,6 +64,7 @@
    "read_only": 1
   },
   {
+   "default": "Now",
    "fieldname": "posting_time",
    "fieldtype": "Time",
    "label": "Posting Time",
@@ -96,10 +97,11 @@
    "fieldtype": "Currency",
    "in_list_view": 1,
    "in_preview": 1,
-   "label": "Total $",
+   "label": "Total",
    "non_negative": 1,
    "precision": "2",
-   "read_only": 1
+   "read_only": 1,
+   "reqd": 1
   },
   {
    "fieldname": "column_break_2",
@@ -150,7 +152,7 @@
    "link_fieldname": "reference_name"
   }
  ],
- "modified": "2026-07-17 14:07:58.487518",
+ "modified": "2026-08-22 16:13:16.418262",
  "modified_by": "Administrator",
  "module": "Grupo Express Invoice Tool",
  "name": "Sales Invoice",
