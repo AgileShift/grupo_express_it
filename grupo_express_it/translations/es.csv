@@ -1,39 +1,3 @@
-Selling,Facturación
-Stock,Inventario
-
-Sales Invoice,Factura de Venta
-
-Customer,Cliente
-Stock Customer,Cliente de Inventario
-
-Customer Name,Nombre del Cliente
-In Words,En Palabras
-Posting Time,Hora de Contabilización
-
-Invoice No,Factura No.
-Item,Producto
-Item Name,Nombre del Producto
-Items,Productos
-Quantity,Cantidad
-
-Pricing Rule,Regla de Precios
-Margin Type,Tipo de Margen
-
-Policy,Póliza
-Policy Item, Producto de Póliza
-
-Billed,Facturado
-Not Billed,No Facturado
-Partly Billed,Parcialmente Facturado
-Fully Billed,Totalmente Facturado
-
-Stock Sales Invoice,Factura de Inventario
-Stock Sales Invoice Item,Producto de Factura de Inventario
-
-Profit Margin %, Margen de Ganancia %
-
-Exchange Rate,Tipo de Cambio
-
 Print,Imprimir
 Copy to Clipboard,Copiar al portapapeles
 
@@ -67,8 +31,6 @@ Not Equals,No es Igual A
 Like,Es Como
 Not Like,No es Como
 Is,Esta
-
-Company,Empresa
 
 Submit this document to confirm,Valide este documento para confirmarlo
 

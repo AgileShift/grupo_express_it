@@ -1,0 +1,864 @@
+# Translations template for Grupo Express Invoice Tool.
+# Copyright (C) 2026 Agile Shift
+# This file is distributed under the same license as the Grupo Express Invoice Tool project.
+# FIRST AUTHOR <EMAIL@ADDRESS>, 2026.
+#
+msgid ""
+msgstr ""
+"Project-Id-Version: Grupo Express Invoice Tool VERSION\n"
+"Report-Msgid-Bugs-To: contacto@gruporeal.org\n"
+"POT-Creation-Date: 2026-08-24 08:03-0615\n"
+"PO-Revision-Date: 2026-08-24 08:03-0615\n"
+"Last-Translator: contacto@gruporeal.org\n"
+"Language-Team: contacto@gruporeal.org\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=utf-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Generated-By: Babel 2.16.0\n"
+
+#. Header text in the Stock Workspace
+#: grupo_express_it/stock_management/workspace/stock/stock.json
+msgid "<span class=\"h4\"><b>Reports</b></span>"
+msgstr ""
+
+#. Header text in the Stock Workspace
+#: grupo_express_it/stock_management/workspace/stock/stock.json
+msgid "<span class=\"h4\"><b>Stock Management</b></span>"
+msgstr ""
+
+#. Header text in the Selling Workspace
+#: grupo_express_it/grupo_express_invoice_tool/workspace/selling/selling.json
+msgid "<span class=\"h4\">Selling Management</span>"
+msgstr ""
+
+#. Label of the aliases (Small Text) field in DocType 'Customer'
+#: grupo_express_it/grupo_express_invoice_tool/doctype/customer/customer.json
+msgid "Alias"
+msgstr ""
+
+#. Label of the per_billed (Percent) field in DocType 'Policy'
+#: grupo_express_it/stock_management/doctype/policy/policy.json
+msgid "Billed"
+msgstr ""
+
+#. Option for the 'UOM' (Select) field in DocType 'Policy Item'
+#. Option for the 'UOM' (Select) field in DocType 'Stock Sales Invoice Item'
+#: grupo_express_it/stock_management/doctype/policy_item/policy_item.json
+#: grupo_express_it/stock_management/doctype/stock_sales_invoice_item/stock_sales_invoice_item.json
+msgid "Bolsas"
+msgstr ""
+
+#. Option for the 'Type' (Select) field in DocType 'Pricing Rule'
+#. Label of the packages (Int) field in DocType 'Sales Invoice Item'
+#: grupo_express_it/grupo_express_invoice_tool/doctype/pricing_rule/pricing_rule.json
+#: grupo_express_it/grupo_express_invoice_tool/doctype/sales_invoice_item/sales_invoice_item.json
+msgid "Bultos"
+msgstr ""
+
+#. Description of the 'Costo Total C$' (Currency) field in DocType 'Policy
+#. Item'
+#: grupo_express_it/stock_management/doctype/policy_item/policy_item.json
+msgid "CIF + Impuestos + Nacionalización"
+msgstr ""
+
+#. Label of the cif_total_usd (Currency) field in DocType 'Policy Item'
+#: grupo_express_it/stock_management/doctype/policy_item/policy_item.json
+msgid "CIF Total $"
+msgstr ""
+
+#. Label of the cif_total_nio (Currency) field in DocType 'Policy Item'
+#: grupo_express_it/stock_management/doctype/policy_item/policy_item.json
+msgid "CIF Total C$"
+msgstr ""
+
+#. Option for the 'UOM' (Select) field in DocType 'Policy Item'
+#. Option for the 'UOM' (Select) field in DocType 'Stock Sales Invoice Item'
+#: grupo_express_it/stock_management/doctype/policy_item/policy_item.json
+#: grupo_express_it/stock_management/doctype/stock_sales_invoice_item/stock_sales_invoice_item.json
+msgid "Cajas"
+msgstr ""
+
+#. Description of the 'Cantidad Disponible' (Float) field in DocType 'Policy
+#. Item'
+#: grupo_express_it/stock_management/doctype/policy_item/policy_item.json
+msgid "Cantidad De Inventario Disponible para Facturar"
+msgstr ""
+
+#. Label of the actual_qty (Float) field in DocType 'Policy Item'
+#. Label of the actual_qty (Float) field in DocType 'Stock Sales Invoice Item'
+#: grupo_express_it/stock_management/doctype/policy_item/policy_item.json
+#: grupo_express_it/stock_management/doctype/stock_sales_invoice_item/stock_sales_invoice_item.json
+msgid "Cantidad Disponible"
+msgstr ""
+
+#. Option for the 'Margin Type' (Select) field in DocType 'Pricing Rule'
+#: grupo_express_it/grupo_express_invoice_tool/doctype/pricing_rule/pricing_rule.json
+msgid "Cantidad Fija"
+msgstr ""
+
+#. Label of the total_qty (Float) field in DocType 'Policy'
+#: grupo_express_it/stock_management/doctype/policy/policy.json
+msgid "Cantidad Total"
+msgstr ""
+
+#. Label of the ruc (Data) field in DocType 'Customer'
+#. Label of the ruc (Data) field in DocType 'Stock Customer'
+#: grupo_express_it/grupo_express_invoice_tool/doctype/customer/customer.json
+#: grupo_express_it/stock_management/doctype/stock_customer/stock_customer.json
+msgid "Cedula\\RUC"
+msgstr ""
+
+#. Label of the company (Select) field in DocType 'Policy'
+#. Label of the company (Select) field in DocType 'Stock Sales Invoice'
+#: grupo_express_it/stock_management/doctype/policy/policy.json
+#: grupo_express_it/stock_management/doctype/stock_sales_invoice/stock_sales_invoice.json
+msgid "Company"
+msgstr ""
+
+#. Option for the 'Type' (Select) field in DocType 'Item'
+#: grupo_express_it/grupo_express_invoice_tool/doctype/item/item.json
+msgid "Complemento"
+msgstr ""
+
+#. Option for the 'Type' (Select) field in DocType 'Item'
+#: grupo_express_it/grupo_express_invoice_tool/doctype/item/item.json
+msgid "Contenedor"
+msgstr ""
+
+#. Label of the valor_fob_column (Column Break) field in DocType 'Policy'
+#: grupo_express_it/stock_management/doctype/policy/policy.json
+msgid "Costo FOB"
+msgstr ""
+
+#. Label of the total_cif (Currency) field in DocType 'Policy'
+#: grupo_express_it/stock_management/doctype/policy/policy.json
+msgid "Costo Global CIF $"
+msgstr ""
+
+#. Label of the grand_total_nationalization (Currency) field in DocType
+#. 'Policy'
+#: grupo_express_it/stock_management/doctype/policy/policy.json
+msgid "Costo Global de Nacionalización C$"
+msgstr ""
+
+#. Label of the total_cost (Currency) field in DocType 'Policy'
+#. Label of the total_price (Currency) field in DocType 'Policy Item'
+#: grupo_express_it/stock_management/doctype/policy/policy.json
+#: grupo_express_it/stock_management/doctype/policy_item/policy_item.json
+msgid "Costo Total C$"
+msgstr ""
+
+#. Label of the unit_price (Currency) field in DocType 'Policy Item'
+#. Label of the unit_price (Currency) field in DocType 'Stock Sales Invoice
+#. Item'
+#: grupo_express_it/stock_management/doctype/policy_item/policy_item.json
+#: grupo_express_it/stock_management/doctype/stock_sales_invoice_item/stock_sales_invoice_item.json
+msgid "Costo Unitario C$"
+msgstr ""
+
+#. Description of the 'FOB Unitario $' (Currency) field in DocType 'Policy
+#. Item'
+#: grupo_express_it/stock_management/doctype/policy_item/policy_item.json
+msgid "Costo Unitario FOB"
+msgstr ""
+
+#. Description of the 'Costo Unitario C$' (Currency) field in DocType 'Policy
+#. Item'
+#: grupo_express_it/stock_management/doctype/policy_item/policy_item.json
+msgid "Costo Unitario Nacionalizado"
+msgstr ""
+
+#. Label of the cif_costs (Table) field in DocType 'Policy'
+#: grupo_express_it/stock_management/doctype/policy/policy.json
+msgid "Costos CIF"
+msgstr ""
+
+#. Label of the column_break_myn4 (Column Break) field in DocType 'Policy'
+#: grupo_express_it/stock_management/doctype/policy/policy.json
+msgid "Costos CIF (FOB + Flete + Seguro)"
+msgstr ""
+
+#. Label of the column_break_cpka (Column Break) field in DocType 'Policy Item'
+#: grupo_express_it/stock_management/doctype/policy_item/policy_item.json
+msgid "Costos de Flete y Seguro"
+msgstr ""
+
+#. Label of the column_break_xf34 (Column Break) field in DocType 'Policy'
+#. Label of the nationalization_costs (Table) field in DocType 'Policy'
+#. Label of the column_break_fpgb (Column Break) field in DocType 'Policy Item'
+#: grupo_express_it/stock_management/doctype/policy/policy.json
+#: grupo_express_it/stock_management/doctype/policy_item/policy_item.json
+msgid "Costos de Nacionalización"
+msgstr ""
+
+#. Name of a DocType
+#. Label of the customer (Link) field in DocType 'Sales Invoice'
+#. Label of a shortcut in the Selling Workspace
+#. Label of the customer (Link) field in DocType 'Stock Sales Invoice'
+#. Label of a shortcut in the Stock Workspace
+#. Label of a Workspace Sidebar Item
+#: grupo_express_it/grupo_express_invoice_tool/doctype/customer/customer.json
+#: grupo_express_it/grupo_express_invoice_tool/doctype/sales_invoice/sales_invoice.json
+#: grupo_express_it/grupo_express_invoice_tool/workspace/selling/selling.json
+#: grupo_express_it/stock_management/doctype/stock_sales_invoice/stock_sales_invoice.json
+#: grupo_express_it/stock_management/workspace/stock/stock.json
+#: grupo_express_it/workspace_sidebar/selling.json
+#: grupo_express_it/workspace_sidebar/stock.json
+msgid "Customer"
+msgstr ""
+
+#. Description of the 'Code' (Data) field in DocType 'Customer'
+#: grupo_express_it/grupo_express_invoice_tool/doctype/customer/customer.json
+msgid "Customer Code"
+msgstr ""
+
+#. Label of the customer_name (Data) field in DocType 'Sales Invoice'
+#. Label of the customer_name (Data) field in DocType 'Stock Customer'
+#: grupo_express_it/grupo_express_invoice_tool/doctype/sales_invoice/sales_invoice.json
+#: grupo_express_it/stock_management/doctype/stock_customer/stock_customer.json
+msgid "Customer Name"
+msgstr ""
+
+#. Option for the 'Type' (Select) field in DocType 'Pricing Rule'
+#. Option for the 'UOM' (Select) field in DocType 'Policy Item'
+#. Option for the 'UOM' (Select) field in DocType 'Stock Sales Invoice Item'
+#: grupo_express_it/grupo_express_invoice_tool/doctype/pricing_rule/pricing_rule.json
+#: grupo_express_it/stock_management/doctype/policy_item/policy_item.json
+#: grupo_express_it/stock_management/doctype/stock_sales_invoice_item/stock_sales_invoice_item.json
+msgid "Docenas"
+msgstr ""
+
+#. Label of the exp (Data) field in DocType 'Sales Invoice Item'
+#: grupo_express_it/grupo_express_invoice_tool/doctype/sales_invoice_item/sales_invoice_item.json
+msgid "Exp."
+msgstr ""
+
+#. Description of the 'CIF Total $' (Currency) field in DocType 'Policy Item'
+#: grupo_express_it/stock_management/doctype/policy_item/policy_item.json
+msgid "FOB + Flete + Seguro"
+msgstr ""
+
+#. Label of the total_fob (Currency) field in DocType 'Policy'
+#. Label of the fob_total_price (Currency) field in DocType 'Policy Item'
+#: grupo_express_it/stock_management/doctype/policy/policy.json
+#: grupo_express_it/stock_management/doctype/policy_item/policy_item.json
+msgid "FOB Total $"
+msgstr ""
+
+#. Label of the fob_unit_price (Currency) field in DocType 'Policy Item'
+#: grupo_express_it/stock_management/doctype/policy_item/policy_item.json
+msgid "FOB Unitario $"
+msgstr ""
+
+#. Name of a report
+#: grupo_express_it/grupo_express_invoice_tool/report/facturas_de_venta/facturas_de_venta.json
+msgid "Facturas de Venta"
+msgstr ""
+
+#. Option for the 'Type' (Select) field in DocType 'Policy CIF Cost'
+#: grupo_express_it/stock_management/doctype/policy_cif_cost/policy_cif_cost.json
+msgid "Flete"
+msgstr ""
+
+#. Label of the freight_cost (Currency) field in DocType 'Policy Item'
+#: grupo_express_it/stock_management/doctype/policy_item/policy_item.json
+msgid "Flete $"
+msgstr ""
+
+#. Label of the total_freight (Currency) field in DocType 'Policy'
+#: grupo_express_it/stock_management/doctype/policy/policy.json
+msgid "Flete Total $"
+msgstr ""
+
+#. Description of the 'Policy' (Data) field in DocType 'Policy'
+#: grupo_express_it/stock_management/doctype/policy/policy.json
+msgid "Formato: L - #####"
+msgstr ""
+
+#. Option for the 'Status' (Select) field in DocType 'Policy'
+#: grupo_express_it/stock_management/doctype/policy/policy.json
+msgid "Fully Billed"
+msgstr ""
+
+#. Option for the 'UOM' (Select) field in DocType 'Policy Item'
+#. Option for the 'UOM' (Select) field in DocType 'Stock Sales Invoice Item'
+#: grupo_express_it/stock_management/doctype/policy_item/policy_item.json
+#: grupo_express_it/stock_management/doctype/stock_sales_invoice_item/stock_sales_invoice_item.json
+msgid "Galones"
+msgstr ""
+
+#. Description of the 'Nacionalización C$' (Currency) field in DocType 'Policy
+#. Item'
+#: grupo_express_it/stock_management/doctype/policy_item/policy_item.json
+msgid "Gastos de Nacionalización"
+msgstr ""
+
+#. Option for the 'UOM' (Select) field in DocType 'Policy Item'
+#. Option for the 'UOM' (Select) field in DocType 'Stock Sales Invoice Item'
+#: grupo_express_it/stock_management/doctype/policy_item/policy_item.json
+#: grupo_express_it/stock_management/doctype/stock_sales_invoice_item/stock_sales_invoice_item.json
+msgid "Gruesas"
+msgstr ""
+
+#. Option for the 'Company' (Select) field in DocType 'Policy'
+#. Option for the 'Company' (Select) field in DocType 'Stock Sales Invoice'
+#: grupo_express_it/stock_management/doctype/policy/policy.json
+#: grupo_express_it/stock_management/doctype/stock_sales_invoice/stock_sales_invoice.json
+msgid "Grupo Express, S.A."
+msgstr ""
+
+#. Option for the 'Company' (Select) field in DocType 'Policy'
+#. Option for the 'Company' (Select) field in DocType 'Stock Sales Invoice'
+#: grupo_express_it/stock_management/doctype/policy/policy.json
+#: grupo_express_it/stock_management/doctype/stock_sales_invoice/stock_sales_invoice.json
+msgid "Grupo SyM, S.A."
+msgstr ""
+
+#. Option for the 'Company' (Select) field in DocType 'Policy'
+#. Option for the 'Company' (Select) field in DocType 'Stock Sales Invoice'
+#: grupo_express_it/stock_management/doctype/policy/policy.json
+#: grupo_express_it/stock_management/doctype/stock_sales_invoice/stock_sales_invoice.json
+msgid "Grupo de Importaciones Express, S.A."
+msgstr ""
+
+#. Label of the iva (Currency) field in DocType 'Policy Nationalization Cost'
+#. Label of the taxes (Currency) field in DocType 'Stock Sales Invoice'
+#: grupo_express_it/stock_management/doctype/policy_nationalization_cost/policy_nationalization_cost.json
+#: grupo_express_it/stock_management/doctype/stock_sales_invoice/stock_sales_invoice.json
+msgid "I.V.A C$"
+msgstr ""
+
+#. Option for the 'Company' (Select) field in DocType 'Policy'
+#. Option for the 'Company' (Select) field in DocType 'Stock Sales Invoice'
+#: grupo_express_it/stock_management/doctype/policy/policy.json
+#: grupo_express_it/stock_management/doctype/stock_sales_invoice/stock_sales_invoice.json
+msgid "Importadora Internacional, S.A."
+msgstr ""
+
+#. Description of the 'Impuestos C$' (Currency) field in DocType 'Policy Item'
+#. Option for the 'Type' (Select) field in DocType 'Policy Nationalization
+#. Cost'
+#: grupo_express_it/stock_management/doctype/policy_item/policy_item.json
+#: grupo_express_it/stock_management/doctype/policy_nationalization_cost/policy_nationalization_cost.json
+msgid "Impuestos Aduaneros"
+msgstr ""
+
+#. Label of the customs_taxes (Currency) field in DocType 'Policy Item'
+#: grupo_express_it/stock_management/doctype/policy_item/policy_item.json
+msgid "Impuestos C$"
+msgstr ""
+
+#. Label of the in_words (Data) field in DocType 'Sales Invoice'
+#: grupo_express_it/grupo_express_invoice_tool/doctype/sales_invoice/sales_invoice.json
+msgid "In Words"
+msgstr ""
+
+#. Description of the 'Alias' (Small Text) field in DocType 'Customer'
+#: grupo_express_it/grupo_express_invoice_tool/doctype/customer/customer.json
+msgid "Ingrese la lista de opciones, cada una en una nueva línea."
+msgstr ""
+
+#. Label of the section_break_rcrc (Section Break) field in DocType 'Policy
+#. Item'
+#: grupo_express_it/stock_management/doctype/policy_item/policy_item.json
+msgid "Inventario Disponible"
+msgstr ""
+
+#. Label of the invoice_no (Data) field in DocType 'Sales Invoice Item'
+#. Label of the invoice (Data) field in DocType 'Policy'
+#. Label of the invoice_no (Data) field in DocType 'Stock Sales Invoice'
+#: grupo_express_it/grupo_express_invoice_tool/doctype/sales_invoice_item/sales_invoice_item.json
+#: grupo_express_it/stock_management/doctype/policy/policy.json
+#: grupo_express_it/stock_management/doctype/stock_sales_invoice/stock_sales_invoice.json
+msgid "Invoice No"
+msgstr ""
+
+#: grupo_express_it/grupo_express_invoice_tool/doctype/sales_invoice/sales_invoice.js:11
+msgid "It is needed to fetch Item Details."
+msgstr ""
+
+#. Name of a DocType
+#. Label of the item (Link) field in DocType 'Pricing Rule'
+#. Label of the item (Link) field in DocType 'Sales Invoice Item'
+#. Label of a shortcut in the Selling Workspace
+#. Label of the item (Data) field in DocType 'Policy Item'
+#. Label of the item (Data) field in DocType 'Stock Sales Invoice Item'
+#. Label of a Workspace Sidebar Item
+#: grupo_express_it/grupo_express_invoice_tool/doctype/item/item.json
+#: grupo_express_it/grupo_express_invoice_tool/doctype/pricing_rule/pricing_rule.json
+#: grupo_express_it/grupo_express_invoice_tool/doctype/sales_invoice_item/sales_invoice_item.json
+#: grupo_express_it/grupo_express_invoice_tool/workspace/selling/selling.json
+#: grupo_express_it/stock_management/doctype/policy_item/policy_item.json
+#: grupo_express_it/stock_management/doctype/stock_sales_invoice_item/stock_sales_invoice_item.json
+#: grupo_express_it/workspace_sidebar/selling.json
+msgid "Item"
+msgstr ""
+
+#. Label of the item_name (Data) field in DocType 'Item'
+#: grupo_express_it/grupo_express_invoice_tool/doctype/item/item.json
+msgid "Item Name"
+msgstr ""
+
+#. Option for the 'UOM' (Select) field in DocType 'Policy Item'
+#. Option for the 'UOM' (Select) field in DocType 'Stock Sales Invoice Item'
+#: grupo_express_it/stock_management/doctype/policy_item/policy_item.json
+#: grupo_express_it/stock_management/doctype/stock_sales_invoice_item/stock_sales_invoice_item.json
+msgid "Jarra"
+msgstr ""
+
+#. Option for the 'UOM' (Select) field in DocType 'Policy Item'
+#. Option for the 'UOM' (Select) field in DocType 'Stock Sales Invoice Item'
+#: grupo_express_it/stock_management/doctype/policy_item/policy_item.json
+#: grupo_express_it/stock_management/doctype/stock_sales_invoice_item/stock_sales_invoice_item.json
+msgid "Juego"
+msgstr ""
+
+#. Option for the 'UOM' (Select) field in DocType 'Policy Item'
+#. Option for the 'UOM' (Select) field in DocType 'Stock Sales Invoice Item'
+#: grupo_express_it/stock_management/doctype/policy_item/policy_item.json
+#: grupo_express_it/stock_management/doctype/stock_sales_invoice_item/stock_sales_invoice_item.json
+msgid "KG"
+msgstr ""
+
+#. Option for the 'Type' (Select) field in DocType 'Pricing Rule'
+#: grupo_express_it/grupo_express_invoice_tool/doctype/pricing_rule/pricing_rule.json
+msgid "Kilos"
+msgstr ""
+
+#. Option for the 'UOM' (Select) field in DocType 'Policy Item'
+#. Option for the 'UOM' (Select) field in DocType 'Stock Sales Invoice Item'
+#: grupo_express_it/stock_management/doctype/policy_item/policy_item.json
+#: grupo_express_it/stock_management/doctype/stock_sales_invoice_item/stock_sales_invoice_item.json
+msgid "Kit"
+msgstr ""
+
+#. Option for the 'Type' (Select) field in DocType 'Pricing Rule'
+#: grupo_express_it/grupo_express_invoice_tool/doctype/pricing_rule/pricing_rule.json
+msgid "Libra"
+msgstr ""
+
+#. Option for the 'UOM' (Select) field in DocType 'Policy Item'
+#. Option for the 'UOM' (Select) field in DocType 'Stock Sales Invoice Item'
+#: grupo_express_it/stock_management/doctype/policy_item/policy_item.json
+#: grupo_express_it/stock_management/doctype/stock_sales_invoice_item/stock_sales_invoice_item.json
+msgid "Libras"
+msgstr ""
+
+#. Option for the 'Type' (Select) field in DocType 'Pricing Rule'
+#: grupo_express_it/grupo_express_invoice_tool/doctype/pricing_rule/pricing_rule.json
+msgid "M2"
+msgstr ""
+
+#. Option for the 'Type' (Select) field in DocType 'Pricing Rule'
+#: grupo_express_it/grupo_express_invoice_tool/doctype/pricing_rule/pricing_rule.json
+msgid "M3"
+msgstr ""
+
+#. Label of the margin_section (Section Break) field in DocType 'Pricing Rule'
+#: grupo_express_it/grupo_express_invoice_tool/doctype/pricing_rule/pricing_rule.json
+msgid "Margin"
+msgstr ""
+
+#. Label of the margin_type (Select) field in DocType 'Pricing Rule'
+#. Label of the margin_type (Data) field in DocType 'Sales Invoice Item'
+#: grupo_express_it/grupo_express_invoice_tool/doctype/pricing_rule/pricing_rule.json
+#: grupo_express_it/grupo_express_invoice_tool/doctype/sales_invoice_item/sales_invoice_item.json
+msgid "Margin Type"
+msgstr ""
+
+#. Label of the extra_costs (Check) field in DocType 'Pricing Rule'
+#. Label of the extra_costs (Check) field in DocType 'Sales Invoice Item'
+#: grupo_express_it/grupo_express_invoice_tool/doctype/pricing_rule/pricing_rule.json
+#: grupo_express_it/grupo_express_invoice_tool/doctype/sales_invoice_item/sales_invoice_item.json
+msgid "Mas Gastos"
+msgstr ""
+
+#. Option for the 'UOM' (Select) field in DocType 'Policy Item'
+#. Option for the 'UOM' (Select) field in DocType 'Stock Sales Invoice Item'
+#: grupo_express_it/stock_management/doctype/policy_item/policy_item.json
+#: grupo_express_it/stock_management/doctype/stock_sales_invoice_item/stock_sales_invoice_item.json
+msgid "Metros"
+msgstr ""
+
+#. Option for the 'UOM' (Select) field in DocType 'Policy Item'
+#. Option for the 'UOM' (Select) field in DocType 'Stock Sales Invoice Item'
+#: grupo_express_it/stock_management/doctype/policy_item/policy_item.json
+#: grupo_express_it/stock_management/doctype/stock_sales_invoice_item/stock_sales_invoice_item.json
+msgid "Millar"
+msgstr ""
+
+#. Label of the amount_usd (Currency) field in DocType 'Policy CIF Cost'
+#. Label of the amount_usd (Currency) field in DocType 'Policy Nationalization
+#. Cost'
+#: grupo_express_it/stock_management/doctype/policy_cif_cost/policy_cif_cost.json
+#: grupo_express_it/stock_management/doctype/policy_nationalization_cost/policy_nationalization_cost.json
+msgid "Monto $"
+msgstr ""
+
+#. Label of the amount_nio (Currency) field in DocType 'Policy CIF Cost'
+#. Label of the amount_nio (Currency) field in DocType 'Policy Nationalization
+#. Cost'
+#: grupo_express_it/stock_management/doctype/policy_cif_cost/policy_cif_cost.json
+#: grupo_express_it/stock_management/doctype/policy_nationalization_cost/policy_nationalization_cost.json
+msgid "Monto C$"
+msgstr ""
+
+#. Label of the valuation_rate (Currency) field in DocType 'Pricing Rule'
+#. Label of the valuation_rate (Currency) field in DocType 'Sales Invoice Item'
+#: grupo_express_it/grupo_express_invoice_tool/doctype/pricing_rule/pricing_rule.json
+#: grupo_express_it/grupo_express_invoice_tool/doctype/sales_invoice_item/sales_invoice_item.json
+msgid "Monto de valoración $"
+msgstr ""
+
+#. Option for the 'Type' (Select) field in DocType 'Policy Nationalization
+#. Cost'
+#: grupo_express_it/stock_management/doctype/policy_nationalization_cost/policy_nationalization_cost.json
+msgid "Nacionalizacion"
+msgstr ""
+
+#. Label of the nationalization_total (Currency) field in DocType 'Policy Item'
+#: grupo_express_it/stock_management/doctype/policy_item/policy_item.json
+msgid "Nacionalización C$"
+msgstr ""
+
+#. Option for the 'Status' (Select) field in DocType 'Policy'
+#: grupo_express_it/stock_management/doctype/policy/policy.json
+msgid "Not Billed"
+msgstr ""
+
+#. Option for the 'UOM' (Select) field in DocType 'Policy Item'
+#. Option for the 'UOM' (Select) field in DocType 'Stock Sales Invoice Item'
+#: grupo_express_it/stock_management/doctype/policy_item/policy_item.json
+#: grupo_express_it/stock_management/doctype/stock_sales_invoice_item/stock_sales_invoice_item.json
+msgid "Paquetes"
+msgstr ""
+
+#. Option for the 'UOM' (Select) field in DocType 'Policy Item'
+#. Option for the 'UOM' (Select) field in DocType 'Stock Sales Invoice Item'
+#: grupo_express_it/stock_management/doctype/policy_item/policy_item.json
+#: grupo_express_it/stock_management/doctype/stock_sales_invoice_item/stock_sales_invoice_item.json
+msgid "Pares"
+msgstr ""
+
+#. Option for the 'Status' (Select) field in DocType 'Policy'
+#: grupo_express_it/stock_management/doctype/policy/policy.json
+msgid "Partly Billed"
+msgstr ""
+
+#. Option for the 'UOM' (Select) field in DocType 'Policy Item'
+#. Option for the 'UOM' (Select) field in DocType 'Stock Sales Invoice Item'
+#: grupo_express_it/stock_management/doctype/policy_item/policy_item.json
+#: grupo_express_it/stock_management/doctype/stock_sales_invoice_item/stock_sales_invoice_item.json
+msgid "Pieza"
+msgstr ""
+
+#. Option for the 'Type' (Select) field in DocType 'Pricing Rule'
+#: grupo_express_it/grupo_express_invoice_tool/doctype/pricing_rule/pricing_rule.json
+msgid "Piezas"
+msgstr ""
+
+#: grupo_express_it/stock_management/doctype/stock_sales_invoice/stock_sales_invoice.js:55
+msgid "Please select Company first"
+msgstr ""
+
+#: grupo_express_it/grupo_express_invoice_tool/doctype/sales_invoice/sales_invoice.js:11
+msgid "Please select the customer."
+msgstr ""
+
+#. Name of a DocType
+#: grupo_express_it/stock_management/doctype/policy_cif_cost/policy_cif_cost.json
+msgid "Policy CIF Cost"
+msgstr ""
+
+#: grupo_express_it/stock_management/doctype/stock_sales_invoice/stock_sales_invoice.js:72
+msgid "Policy Date"
+msgstr ""
+
+#. Name of a DocType
+#. Label of the policy_item (Link) field in DocType 'Stock Sales Invoice Item'
+#: grupo_express_it/stock_management/doctype/policy_item/policy_item.json
+#: grupo_express_it/stock_management/doctype/stock_sales_invoice_item/stock_sales_invoice_item.json
+msgid "Policy Item"
+msgstr ""
+
+#. Name of a DocType
+#: grupo_express_it/stock_management/doctype/policy_nationalization_cost/policy_nationalization_cost.json
+msgid "Policy Nationalization Cost"
+msgstr ""
+
+#. Label of the margin_rate_or_amount (Float) field in DocType 'Pricing Rule'
+#. Label of the margin_rate_or_amount (Float) field in DocType 'Sales Invoice
+#. Item'
+#: grupo_express_it/grupo_express_invoice_tool/doctype/pricing_rule/pricing_rule.json
+#: grupo_express_it/grupo_express_invoice_tool/doctype/sales_invoice_item/sales_invoice_item.json
+msgid "Porcentaje(%) o Monto($)"
+msgstr ""
+
+#. Label of the posting_time (Time) field in DocType 'Sales Invoice'
+#: grupo_express_it/grupo_express_invoice_tool/doctype/sales_invoice/sales_invoice.json
+msgid "Posting Time"
+msgstr ""
+
+#. Label of the price (Currency) field in DocType 'Stock Sales Invoice Item'
+#: grupo_express_it/stock_management/doctype/stock_sales_invoice_item/stock_sales_invoice_item.json
+msgid "Precio C$"
+msgstr ""
+
+#. Label of the pricing_rules (Table) field in DocType 'Customer'
+#. Name of a DocType
+#. Label of the margin_section (Section Break) field in DocType 'Sales Invoice
+#. Item'
+#: grupo_express_it/grupo_express_invoice_tool/doctype/customer/customer.json
+#: grupo_express_it/grupo_express_invoice_tool/doctype/pricing_rule/pricing_rule.json
+#: grupo_express_it/grupo_express_invoice_tool/doctype/sales_invoice_item/sales_invoice_item.json
+msgid "Pricing Rule"
+msgstr ""
+
+#. Label of the profit_margin (Float) field in DocType 'Stock Sales Invoice'
+#: grupo_express_it/stock_management/doctype/stock_sales_invoice/stock_sales_invoice.json
+msgid "Profit Margin %"
+msgstr ""
+
+#. Label of the qty (Float) field in DocType 'Sales Invoice Item'
+#. Label of the qty (Float) field in DocType 'Policy Item'
+#. Label of the qty (Float) field in DocType 'Stock Sales Invoice Item'
+#: grupo_express_it/grupo_express_invoice_tool/doctype/sales_invoice_item/sales_invoice_item.json
+#: grupo_express_it/stock_management/doctype/policy_item/policy_item.json
+#: grupo_express_it/stock_management/doctype/stock_sales_invoice_item/stock_sales_invoice_item.json
+msgid "Quantity"
+msgstr ""
+
+#. Option for the 'Type' (Select) field in DocType 'Item'
+#: grupo_express_it/grupo_express_invoice_tool/doctype/item/item.json
+msgid "Regular"
+msgstr ""
+
+#. Description of the 'Type' (Select) field in DocType 'Item'
+#: grupo_express_it/grupo_express_invoice_tool/doctype/item/item.json
+msgid ""
+"Regular: Productos específicos.\n"
+"\n"
+"Complemento: Costos extras de un Contenedor."
+msgstr ""
+
+#. Name of a report
+#. Label of a Link in the Stock Workspace
+#: grupo_express_it/stock_management/report/reporte_de_iva_por_poliza/reporte_de_iva_por_poliza.json
+#: grupo_express_it/stock_management/workspace/stock/stock.json
+msgid "Reporte de IVA por Poliza"
+msgstr ""
+
+#. Name of a report
+#. Label of a Link in the Stock Workspace
+#: grupo_express_it/stock_management/report/reporte_de_poliza_detallado/reporte_de_poliza_detallado.json
+#: grupo_express_it/stock_management/workspace/stock/stock.json
+msgid "Reporte de Poliza Detallado"
+msgstr ""
+
+#. Option for the 'UOM' (Select) field in DocType 'Policy Item'
+#. Option for the 'UOM' (Select) field in DocType 'Stock Sales Invoice Item'
+#: grupo_express_it/stock_management/doctype/policy_item/policy_item.json
+#: grupo_express_it/stock_management/doctype/stock_sales_invoice_item/stock_sales_invoice_item.json
+msgid "Rollo"
+msgstr ""
+
+#. Name of a DocType
+#. Label of a Link in the Selling Workspace
+#. Label of a shortcut in the Selling Workspace
+#. Label of a Workspace Sidebar Item
+#: grupo_express_it/grupo_express_invoice_tool/doctype/sales_invoice/sales_invoice.json
+#: grupo_express_it/grupo_express_invoice_tool/workspace/selling/selling.json
+#: grupo_express_it/workspace_sidebar/selling.json
+msgid "Sales Invoice"
+msgstr ""
+
+#. Name of a DocType
+#: grupo_express_it/grupo_express_invoice_tool/doctype/sales_invoice_item/sales_invoice_item.json
+msgid "Sales Invoice Item"
+msgstr ""
+
+#. Option for the 'Type' (Select) field in DocType 'Policy CIF Cost'
+#: grupo_express_it/stock_management/doctype/policy_cif_cost/policy_cif_cost.json
+msgid "Seguro"
+msgstr ""
+
+#. Label of the insurance_cost (Currency) field in DocType 'Policy Item'
+#: grupo_express_it/stock_management/doctype/policy_item/policy_item.json
+msgid "Seguro $"
+msgstr ""
+
+#. Label of the total_insurance (Currency) field in DocType 'Policy'
+#: grupo_express_it/stock_management/doctype/policy/policy.json
+msgid "Seguros Total $"
+msgstr ""
+
+#. Label of a Desktop Icon
+#. Name of a Workspace
+#. Title of a Workspace Sidebar
+#: grupo_express_it/desktop_icon/selling.json
+#: grupo_express_it/grupo_express_invoice_tool/workspace/selling/selling.json
+#: grupo_express_it/workspace_sidebar/selling.json
+msgid "Selling"
+msgstr ""
+
+#. Option for the 'Margin Type' (Select) field in DocType 'Pricing Rule'
+#: grupo_express_it/grupo_express_invoice_tool/doctype/pricing_rule/pricing_rule.json
+msgid "Sobre Factura"
+msgstr ""
+
+#. Label of a Desktop Icon
+#. Name of a Workspace
+#. Title of a Workspace Sidebar
+#: grupo_express_it/desktop_icon/stock.json
+#: grupo_express_it/stock_management/workspace/stock/stock.json
+#: grupo_express_it/workspace_sidebar/stock.json
+msgid "Stock"
+msgstr ""
+
+#. Name of a DocType
+#: grupo_express_it/stock_management/doctype/stock_customer/stock_customer.json
+msgid "Stock Customer"
+msgstr ""
+
+#. Name of a DocType
+#. Label of a shortcut in the Stock Workspace
+#. Label of a Workspace Sidebar Item
+#: grupo_express_it/stock_management/doctype/stock_sales_invoice/stock_sales_invoice.json
+#: grupo_express_it/stock_management/workspace/stock/stock.json
+#: grupo_express_it/workspace_sidebar/stock.json
+msgid "Stock Sales Invoice"
+msgstr ""
+
+#. Name of a DocType
+#: grupo_express_it/stock_management/doctype/stock_sales_invoice_item/stock_sales_invoice_item.json
+msgid "Stock Sales Invoice Item"
+msgstr ""
+
+#. Label of the subtotal (Currency) field in DocType 'Stock Sales Invoice'
+#: grupo_express_it/stock_management/doctype/stock_sales_invoice/stock_sales_invoice.json
+msgid "Sub Total C$"
+msgstr ""
+
+#. Label of the vendor (Data) field in DocType 'Sales Invoice Item'
+#. Label of the provider (Data) field in DocType 'Policy'
+#: grupo_express_it/grupo_express_invoice_tool/doctype/sales_invoice_item/sales_invoice_item.json
+#: grupo_express_it/stock_management/doctype/policy/policy.json
+msgid "Supplier"
+msgstr ""
+
+#. Label of the exchange_rate (Currency) field in DocType 'Policy'
+#. Label of the exchange_rate (Currency) field in DocType 'Policy CIF Cost'
+#. Label of the exchange_rate (Currency) field in DocType 'Policy
+#. Nationalization Cost'
+#. Label of the currency_exchange (Currency) field in DocType 'Stock Sales
+#. Invoice'
+#: grupo_express_it/stock_management/doctype/policy/policy.json
+#: grupo_express_it/stock_management/doctype/policy_cif_cost/policy_cif_cost.json
+#: grupo_express_it/stock_management/doctype/policy_nationalization_cost/policy_nationalization_cost.json
+#: grupo_express_it/stock_management/doctype/stock_sales_invoice/stock_sales_invoice.json
+msgid "Tasa de Cambio C$"
+msgstr ""
+
+#. Label of the amount (Currency) field in DocType 'Sales Invoice Item'
+#: grupo_express_it/grupo_express_invoice_tool/doctype/sales_invoice_item/sales_invoice_item.json
+msgid "Total $"
+msgstr ""
+
+#. Label of the total (Currency) field in DocType 'Stock Sales Invoice'
+#. Label of the total (Currency) field in DocType 'Stock Sales Invoice Item'
+#: grupo_express_it/stock_management/doctype/stock_sales_invoice/stock_sales_invoice.json
+#: grupo_express_it/stock_management/doctype/stock_sales_invoice_item/stock_sales_invoice_item.json
+msgid "Total C$"
+msgstr ""
+
+#. Label of the total_customs_taxes (Currency) field in DocType 'Policy'
+#: grupo_express_it/stock_management/doctype/policy/policy.json
+msgid "Total Impuestos Aduaneros C$"
+msgstr ""
+
+#. Label of the total_nationalization_costs (Currency) field in DocType
+#. 'Policy'
+#: grupo_express_it/stock_management/doctype/policy/policy.json
+msgid "Total de Nacionalización C$"
+msgstr ""
+
+#. Label of the section_break_2pl7 (Section Break) field in DocType 'Policy'
+#: grupo_express_it/stock_management/doctype/policy/policy.json
+msgid "Totales"
+msgstr ""
+
+#. Label of the uom (Select) field in DocType 'Policy Item'
+#. Label of the uom (Select) field in DocType 'Stock Sales Invoice Item'
+#: grupo_express_it/stock_management/doctype/policy_item/policy_item.json
+#: grupo_express_it/stock_management/doctype/stock_sales_invoice_item/stock_sales_invoice_item.json
+msgid "UOM"
+msgstr ""
+
+#. Option for the 'UOM' (Select) field in DocType 'Policy Item'
+#. Option for the 'UOM' (Select) field in DocType 'Stock Sales Invoice Item'
+#: grupo_express_it/stock_management/doctype/policy_item/policy_item.json
+#: grupo_express_it/stock_management/doctype/stock_sales_invoice_item/stock_sales_invoice_item.json
+msgid "Unidad"
+msgstr ""
+
+#. Option for the 'Type' (Select) field in DocType 'Pricing Rule'
+#: grupo_express_it/grupo_express_invoice_tool/doctype/pricing_rule/pricing_rule.json
+msgid "Unidades"
+msgstr ""
+
+#. Label of the column_break_smvm (Column Break) field in DocType 'Policy Item'
+#: grupo_express_it/stock_management/doctype/policy_item/policy_item.json
+msgid "Valor CIF"
+msgstr ""
+
+#. Description of the 'FOB Total $' (Currency) field in DocType 'Policy Item'
+#: grupo_express_it/stock_management/doctype/policy_item/policy_item.json
+msgid "Valor FOB Total"
+msgstr ""
+
+#. Label of the invoiced_amount (Currency) field in DocType 'Sales Invoice
+#. Item'
+#: grupo_express_it/grupo_express_invoice_tool/doctype/sales_invoice_item/sales_invoice_item.json
+msgid "Valor de Factura $"
+msgstr ""
+
+#. Label of the stock_value (Currency) field in DocType 'Policy Item'
+#: grupo_express_it/stock_management/doctype/policy_item/policy_item.json
+msgid "Valor del Inventario Disponible C$"
+msgstr ""
+
+#: grupo_express_it/stock_management/doctype/stock_sales_invoice/stock_sales_invoice.js:74
+msgid "Valor del Inventario Disponible C$ Minimo"
+msgstr ""
+
+#. Description of the 'Valor del Inventario Disponible C$' (Currency) field in
+#. DocType 'Policy Item'
+#: grupo_express_it/stock_management/doctype/policy_item/policy_item.json
+msgid "Valor del Inventario Disponible para Facturar"
+msgstr ""
+
+#. Option for the 'Margin Type' (Select) field in DocType 'Pricing Rule'
+#: grupo_express_it/grupo_express_invoice_tool/doctype/pricing_rule/pricing_rule.json
+msgid "Valoracion"
+msgstr ""
+
+#. Label of the column_break_gph5 (Column Break) field in DocType 'Policy'
+#. Label of the column_break_loec (Column Break) field in DocType 'Policy Item'
+#: grupo_express_it/stock_management/doctype/policy/policy.json
+#: grupo_express_it/stock_management/doctype/policy_item/policy_item.json
+msgid "Valoración"
+msgstr ""
+
+#. Label of the whatsapp (Check) field in DocType 'Sales Invoice'
+#. Group in Sales Invoice's connections
+#: grupo_express_it/grupo_express_invoice_tool/doctype/sales_invoice/sales_invoice.json
+msgid "WhatsApp"
+msgstr ""
+
+#. Option for the 'UOM' (Select) field in DocType 'Policy Item'
+#. Option for the 'UOM' (Select) field in DocType 'Stock Sales Invoice Item'
+#: grupo_express_it/stock_management/doctype/policy_item/policy_item.json
+#: grupo_express_it/stock_management/doctype/stock_sales_invoice_item/stock_sales_invoice_item.json
+msgid "Yardas"
+msgstr ""
+
