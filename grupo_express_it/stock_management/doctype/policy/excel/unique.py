@@ -181,6 +181,27 @@ def _total(ws: Worksheet, current_row: int, cif_total_row: int, nat_total_row: i
 	ws.cell(row=current_row, column=column_index_from_string('L'), value=f'=I{cif_total_row} + L{nat_total_row}').style = 'table-total'
 
 
+def _write_policy(ws: Worksheet, policy: Policy, start_row: int = 1) -> int:
+	# Adding Extra Row to CIF: Cost Value
+	policy.append(key='cif_costs', value={
+		'provider': policy.provider,
+		'description': 'Mercaderia variada',
+		'posting_date': policy.posting_date,
+		'type': policy.invoice,  # Field reference: Does not exist on PolicyCIFCost
+		'amount_usd': policy.total_fob,
+		'exchange_rate': policy.exchange_rate
+	}, position=0)
+
+	_policy_header(ws, policy)
+
+	current_row = _policy_items(ws, current_row=8, policy_items=policy.items)
+	cif_total_row = _policy_cif_costs(ws, current_row=current_row + 4, cif_costs=policy.cif_costs)
+	nat_total_row = _policy_nationalization_cost(ws, current_row=cif_total_row + 4, nationalization_cost=policy.nationalization_costs)
+	_total(ws, current_row=nat_total_row + 3, cif_total_row=cif_total_row, nat_total_row=nat_total_row)
+
+	return start_row
+
+
 @frappe.whitelist(allow_guest=False)
 def download(policy: str):
 	policy = Policy('Policy', policy)
@@ -190,22 +211,7 @@ def download(policy: str):
 	ws.title = policy.name  # Rename Sheet
 
 	_register_styles(wb)
-	_policy_header(ws, policy)
-
-	# Adding Extra Row for it to make sense
-	policy.append(key='cif_costs', value={
-		'provider': policy.provider,
-		'description': 'Mercaderia variada',
-		'posting_date': policy.posting_date,
-		'type': policy.invoice,  # Field reference: Does not exist on PolicyCIFCost
-		'amount_usd': policy.total_fob,
-		'exchange_rate': policy.exchange_rate  # This
-	}, position=0)
-
-	current_row = _policy_items(ws, current_row=8, policy_items=policy.items)
-	cif_total_row = _policy_cif_costs(ws, current_row=current_row + 4, cif_costs=policy.cif_costs)
-	nat_total_row = _policy_nationalization_cost(ws, current_row=cif_total_row + 4, nationalization_cost=policy.nationalization_costs)
-	_total(ws, current_row=nat_total_row + 3, cif_total_row=cif_total_row, nat_total_row=nat_total_row)
+	_write_policy(ws, policy, 1)
 
 	xlsx_file = BytesIO()
 	wb.save(xlsx_file)
