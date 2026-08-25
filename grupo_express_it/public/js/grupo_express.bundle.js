@@ -1,5 +1,17 @@
 import GridRow from "../../../../frappe/frappe/public/js/frappe/form/grid_row";
 
+const csv_to_array = frappe.utils.csv_to_array;
+
+frappe.utils.csv_to_array = (...args) => {
+	const data = csv_to_array(...args);
+
+	while (data.length > 1 && !data[data.length - 1].some(Boolean)) {
+		data.pop();
+	}
+
+	return data;
+};
+
 frappe.ui.form.ControlTable = class ControlTable extends frappe.ui.form.ControlTable {
 
 	make() {
@@ -7,6 +19,19 @@ frappe.ui.form.ControlTable = class ControlTable extends frappe.ui.form.ControlT
 
 		if (!['Policy Item', 'Policy CIF Cost', 'Policy Nationalization Cost'].includes(this.df.options))
 			return; // No Personalization. Default controller
+
+		this.wrapper.addEventListener("paste", (event) => {
+			if (!$(event.target).is(":text")) return;
+			if ($(event.target).closest(".form-in-grid").length) return;
+
+			const pasted_data = frappe.utils.get_clipboard_data(event);
+			if (!pasted_data) return;
+
+			const data = frappe.utils.csv_to_array(pasted_data, "\t");
+			if (data.length === 1 && data[0].length === 1) return;
+
+			event.preventDefault();
+		}, true);
 
 		// At execution the grid fields are not yet set. Only html elements
 		this.grid.df.on_setup = (grid) => {
