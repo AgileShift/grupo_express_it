@@ -141,9 +141,6 @@ class Policy(Document):
 			elif nationalization.type == 'Nationalization':
 				total_nationalization_costs += nationalization.amount_nio
 
-		if self.grand_total_nationalization != flt(self.total_customs_taxes + self.total_nationalization_costs, 2):
-			frappe.throw(_("Nationalization Costs must equal Customs Taxes plus Nationalization Expenses."))
-
 		# NIO Values
 		self.grand_total_nationalization = flt(grand_total_nationalization, 2)
 		self.total_customs_taxes = flt(total_customs_taxes, 2)

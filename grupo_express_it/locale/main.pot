@@ -7,8 +7,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: Grupo Express Invoice Tool VERSION\n"
 "Report-Msgid-Bugs-To: contacto@gruporeal.org\n"
-"POT-Creation-Date: 2026-08-25 07:37-0615\n"
-"PO-Revision-Date: 2026-08-25 07:37-0615\n"
+"POT-Creation-Date: 2026-08-25 11:02-0615\n"
+"PO-Revision-Date: 2026-08-25 11:02-0615\n"
 "Last-Translator: contacto@gruporeal.org\n"
 "Language-Team: contacto@gruporeal.org\n"
 "MIME-Version: 1.0\n"
@@ -563,12 +563,8 @@ msgstr ""
 msgid "Nationalization"
 msgstr ""
 
-#: grupo_express_it/stock_management/doctype/policy/policy.py:211
+#: grupo_express_it/stock_management/doctype/policy/policy.py:208
 msgid "Nationalization Cost row {0} does not belong to Policy {1}."
-msgstr ""
-
-#: grupo_express_it/stock_management/doctype/policy/policy.py:145
-msgid "Nationalization Costs must equal Customs Taxes plus Nationalization Expenses."
 msgstr ""
 
 #: grupo_express_it/stock_management/doctype/policy/policy.py:76
