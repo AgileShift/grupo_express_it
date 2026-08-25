@@ -45,6 +45,8 @@ class Policy(Document):
 		self.name = f'{self.policy} - {frappe.utils.getdate(self.posting_date).year}'
 
 	def before_validate(self):
+		self._merge_imported_nationalization_costs()
+
 		# Sanitize fields
 		self.exchange_rate = flt(self.exchange_rate)
 		if self.exchange_rate <= 0:
@@ -89,6 +91,10 @@ class Policy(Document):
 	def on_cancel(self):
 		frappe.throw(_("Policy cancellation is not allowed."))
 
+	@frappe.whitelist(allow_guest=False)
+	def recalculate(self):
+		self.before_validate()
+
 	def _calculate(self):
 		"""
 		First Calculate the cost dependencies: CIF and Nationalization.
@@ -99,7 +105,9 @@ class Policy(Document):
 
 		total_cif, total_freight, total_insurance = 0.00, 0.00, 0.00
 		for cif in self.cif_costs:
+			cif.amount_usd = flt(cif.amount_usd)  # Sanitize (doc.is_new() and user paste on Items)
 			cif.exchange_rate = self.exchange_rate  # Update value in CIF rows from Parent(Default)
+
 			cif.amount_nio = cif.amount_usd * cif.exchange_rate  # re-calculate Amount NIO(readonly). Has no effect on Totals
 
 			total_cif += cif.amount_usd
@@ -133,13 +141,13 @@ class Policy(Document):
 			elif nationalization.type == 'Nationalization':
 				total_nationalization_costs += nationalization.amount_nio
 
+		if self.grand_total_nationalization != flt(self.total_customs_taxes + self.total_nationalization_costs, 2):
+			frappe.throw(_("Nationalization Costs must equal Customs Taxes plus Nationalization Expenses."))
+
 		# NIO Values
 		self.grand_total_nationalization = flt(grand_total_nationalization, 2)
 		self.total_customs_taxes = flt(total_customs_taxes, 2)
 		self.total_nationalization_costs = flt(total_nationalization_costs, 2)
-
-		if self.grand_total_nationalization != (self.total_customs_taxes + self.total_nationalization_costs):
-			frappe.throw(_("Nationalization Costs must equal Customs Taxes plus Nationalization Expenses."))
 
 		# Items #
 
@@ -182,6 +190,34 @@ class Policy(Document):
 
 		return self
 
-	@frappe.whitelist(allow_guest=False)
-	def recalculate(self):
-		self.before_validate()
+	def _merge_imported_nationalization_costs(self):
+		if not frappe.flags.in_import or self.is_new():
+			return
+
+		previous_doc = self.get_doc_before_save()
+		if not previous_doc:
+			return
+
+		previous_rows = {row.name: row for row in previous_doc.nationalization_costs}
+		imported_rows, new_rows = {}, []
+
+		for row in self.nationalization_costs:
+			if row.is_new():
+				new_rows.append(row.as_dict())
+				continue
+
+			if row.name not in previous_rows:
+				frappe.throw(
+					_("Nationalization Cost row {0} does not belong to Policy {1}.").format(
+						frappe.bold(row.name),
+						frappe.bold(self.name),
+					)
+				)
+
+			imported_rows[row.name] = row.as_dict()
+
+		merged_rows = [
+			imported_rows.get(row.name, row.as_dict()) for row in previous_doc.nationalization_costs
+		]
+		merged_rows.extend(new_rows)
+		self.set("nationalization_costs", merged_rows)
