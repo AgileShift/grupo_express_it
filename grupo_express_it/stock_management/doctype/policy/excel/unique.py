@@ -1,4 +1,5 @@
 from io import BytesIO
+from typing import Any
 
 from openpyxl.styles import Alignment, Font, NamedStyle, Side, Border, PatternFill
 from openpyxl.utils import column_index_from_string
@@ -14,7 +15,7 @@ from grupo_express_it.stock_management.doctype.policy_nationalization_cost.polic
 	PolicyNationalizationCost
 
 # Default Columns for Policy Child Tables: CIF and Nationalization Costs
-CHILD_COLUMNS = [
+CHILD_COLUMNS: list[dict[str, Any]] = [
 	{'col': 'B',                                                                             'label': 'PROVEEDOR', 'attr': 'provider'},
 	{'col': 'C', 'merge': 'D',                                                               'label': 'DESCRIPCIÓN', 'attr': 'description'},
 	{'col': 'E', 'style': 'date',                                                            'label': 'FECHA', 'attr': 'posting_date'},
@@ -50,13 +51,13 @@ def _register_styles(wb: Workbook) -> None:
 	[wb.add_named_style(style=style) for style in [header, pre_header, text_center, date, number, currency, total_style]]
 
 
-def _table_pre_header(ws: Worksheet, row: int, col: int, value: str, col_range: [str, str]) -> int:
+def _table_pre_header(ws: Worksheet, row: int, col: int, value: str, col_range: tuple[str, str]) -> int:
 	ws.cell(row=row, column=col, value=value).style = 'table-pre-header'
 	ws.merge_cells(f'{col_range[0]}{row}:{col_range[1]}{row}')
 	return row + 1
 
 
-def _table_builder(ws: Worksheet, current_row: int, columns: list[dict], data: list[any]) -> int:
+def _table_builder(ws: Worksheet, current_row: int, columns: list[dict[str, Any]], data: list[Any]) -> int:
 	data_start = current_row + 1  # Data starts a row after the Header
 
 	for col in columns:  # Table Header
@@ -100,24 +101,26 @@ def _table_builder(ws: Worksheet, current_row: int, columns: list[dict], data: l
 	return current_row  # Returns the Total Row
 
 
-def _policy_header(ws: Worksheet, policy: Policy) -> None:
+def _policy_header(ws: Worksheet, policy: Policy, current_row: int) -> int:
 	for (cell, label) in [
-		("A1", "Liquidación de Importación"),
-		("A2", "Registro:"),       ("B2", policy.name),
-		("A3", "Proveedor:"),      ("B3", policy.provider),
-		("A4", "Fecha:"),          ("B4", str(policy.posting_date)),
-		("I2", "Póliza:"),         ("J2", policy.policy),
-		("I3", "Factura:"),        ("J3", policy.invoice),
-		("I4", "Tasa de Cambio:"), ("J4", policy.exchange_rate)
+		(f"A{current_row}", f"Liquidación de Importación: {policy.name}"),
+		(f"A{current_row + 1}", "Registro:"),       (f"B{current_row + 1}", policy.name),
+		(f"A{current_row + 2}", "Proveedor:"),      (f"B{current_row + 2}", policy.provider),
+		(f"A{current_row + 3}", "Fecha:"),          (f"B{current_row + 3}", str(policy.posting_date)),
+		(f"I{current_row + 1}", "Póliza:"),         (f"J{current_row + 1}", policy.policy),
+		(f"I{current_row + 2}", "Factura:"),        (f"J{current_row + 2}", policy.invoice),
+		(f"I{current_row + 3}", "Tasa de Cambio:"), (f"J{current_row + 3}", policy.exchange_rate)
 	]:
 		ws[cell] = label
 
-	ws.merge_cells('A1:N1')
-	ws['A1'].style = "Title"
-	ws['A1'].alignment = Alignment(horizontal='center')
+	ws.merge_cells(f'A{current_row}:N{current_row}')
+	ws[f'A{current_row}'].style = "Title"
+	ws[f'A{current_row}'].alignment = Alignment(horizontal='center')
 
-	ws['I4'].alignment = Alignment(horizontal='right')
-	ws['J4'].number_format = 'C$ 00.000000'  # Currency Exchange Format
+	ws[f'I{current_row + 3}'].alignment = Alignment(horizontal='right')
+	ws[f'J{current_row + 3}'].number_format = 'C$ 00.000000'  # Currency Exchange Format
+
+	return current_row + 3  # Returns the Last Row with header
 
 
 def _policy_items(ws: Worksheet, current_row: int, policy_items: list[PolicyItem]) -> int:
@@ -130,7 +133,7 @@ def _policy_items(ws: Worksheet, current_row: int, policy_items: list[PolicyItem
 		{'col': 'F', 'width': 12, 'style': 'number',                   'total': True,                         'label': 'FLETES $', 'attr': 'freight_cost'},
 		{'col': 'G', 'width': 10, 'style': 'number',                   'total': True,                         'label': 'SEGUROS $', 'attr': 'insurance_cost'},
 		{'col': 'H', 'width': 11, 'style': 'number', 'fill': 'f2f2f2', 'total': True, 'total_fill': 'a9d18e', 'label': 'CIF DÓLARES $', 'attr': '=E{row}+F{row}+G{row}'},
-		{'col': 'I', 'width': 12, 'style': 'number', 'fill': 'f2f2f2', 'total': True, 'total_fill': 'f2f2f2', 'label': 'CIF CORDOBAS C$', 'attr': '=H{row}*$J$4'},
+		{'col': 'I', 'width': 12, 'style': 'number', 'fill': 'f2f2f2', 'total': True, 'total_fill': 'f2f2f2', 'label': 'CIF CORDOBAS C$', 'attr': f'=H{{row}}*$J${current_row - 3}'},
 		{'col': 'J', 'width': 12, 'style': 'number',                   'total': True,                         'label': 'IMPUESTOS ADUANEROS C$', 'attr': 'customs_taxes'},
 		{'col': 'K', 'width': 12, 'style': 'number',                   'total': True,                         'label': 'COSTOS DE NAC. C$', 'attr': 'nationalization_total'},
 		{'col': 'L', 'width': 15, 'style': 'number', 'fill': 'f2f2f2', 'total': True, 'total_fill': 'f2f2f2', 'label': 'TOTAL COSTOS NACIONAL. C$', 'attr': '=J{row}+K{row}'},
@@ -154,7 +157,7 @@ def _policy_cif_costs(ws: Worksheet, current_row: int, cif_costs: list[PolicyCIF
 		{'col': 'I', 'style': 'number', 'fill': 'f2f2f2', 'total': True, 'total_fill': 'bdd7ee', 'label': 'TOTAL C$', 'attr': '=G{row}*H{row}'}
 	]
 
-	current_row = _table_pre_header(ws=ws, row=current_row, col=2, value='VALOR CIF (FOB + FLETES + SEGUROS)', col_range=['B', 'I'])
+	current_row = _table_pre_header(ws=ws, row=current_row, col=2, value='VALOR CIF (FOB + FLETES + SEGUROS)', col_range=('B', 'I'))
 	return _table_builder(ws=ws, current_row=current_row, columns=columns, data=cif_costs)
 
 
@@ -167,13 +170,13 @@ def _policy_nationalization_cost(ws: Worksheet, current_row: int, nationalizatio
 		{'col': 'L', 'style': 'number', 'fill': 'f2f2f2', 'total': True, 'total_fill': 'bdd7ee', 'label': 'MONTO A PAGAR', 'attr': '=SUM(I{row}:K{row})'}
 	]
 
-	current_row = _table_pre_header(ws=ws, row=current_row, col=2, value='GASTOS DE NACIONALIZACION', col_range=['B', 'L'])
+	current_row = _table_pre_header(ws=ws, row=current_row, col=2, value='GASTOS DE NACIONALIZACION', col_range=('B', 'L'))
 	return _table_builder(ws=ws, current_row=current_row, columns=columns, data=nationalization_cost)
 
 
-def _total(ws: Worksheet, current_row: int, cif_total_row: int, nat_total_row: int):
+def _total(ws: Worksheet, current_row: int, cif_total_row: int, nat_total_row: int) -> None:
 	# This is a little Hacky, but it works: It must be formulas
-	current_row = _table_pre_header(ws=ws, row=current_row, col=2, value='TOTAL COSTO DE MERCADERIA + COSTOS NACIONALIZACION', col_range=['B', 'F']) - 1  # pre-header returns next row
+	current_row = _table_pre_header(ws=ws, row=current_row, col=2, value='TOTAL COSTO DE MERCADERIA + COSTOS NACIONALIZACION', col_range=('B', 'F')) - 1  # pre-header returns next row
 
 	ws.cell(row=current_row, column=column_index_from_string('G'), value=f'=G{cif_total_row} + G{nat_total_row}').style = 'table-total'
 	ws.cell(row=current_row, column=column_index_from_string('I'), value=f'=I{cif_total_row} + I{nat_total_row}').style = 'table-total'
@@ -181,7 +184,7 @@ def _total(ws: Worksheet, current_row: int, cif_total_row: int, nat_total_row: i
 	ws.cell(row=current_row, column=column_index_from_string('L'), value=f'=I{cif_total_row} + L{nat_total_row}').style = 'table-total'
 
 
-def _write_policy(ws: Worksheet, policy: Policy, start_row: int = 1) -> int:
+def _write_policy(ws: Worksheet, policy: Policy, start_row: int) -> int:
 	# Adding Extra Row to CIF: Cost Value
 	policy.append(key='cif_costs', value={
 		'provider': policy.provider,
@@ -192,18 +195,18 @@ def _write_policy(ws: Worksheet, policy: Policy, start_row: int = 1) -> int:
 		'exchange_rate': policy.exchange_rate
 	}, position=0)
 
-	_policy_header(ws, policy)
+	current_row = _policy_header(ws, policy, start_row)
+	current_row = _policy_items(ws, current_row=current_row + 3, policy_items=policy.items)
 
-	current_row = _policy_items(ws, current_row=8, policy_items=policy.items)
 	cif_total_row = _policy_cif_costs(ws, current_row=current_row + 4, cif_costs=policy.cif_costs)
 	nat_total_row = _policy_nationalization_cost(ws, current_row=cif_total_row + 4, nationalization_cost=policy.nationalization_costs)
 	_total(ws, current_row=nat_total_row + 3, cif_total_row=cif_total_row, nat_total_row=nat_total_row)
 
-	return start_row
+	return nat_total_row + 3  # Return last row with data
 
 
 @frappe.whitelist(allow_guest=False)
-def download(policy: str):
+def download(policy: str) -> None:
 	policy = Policy('Policy', policy)
 
 	wb = Workbook()
