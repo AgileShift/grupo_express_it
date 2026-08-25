@@ -7,8 +7,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: Grupo Express Invoice Tool VERSION\n"
 "Report-Msgid-Bugs-To: contacto@gruporeal.org\n"
-"POT-Creation-Date: 2026-08-24 18:14-0745\n"
-"PO-Revision-Date: 2026-08-22 15:23-1945\n"
+"POT-Creation-Date: 2026-08-25 07:37-0745\n"
+"PO-Revision-Date: 2026-08-22 15:23-2015\n"
 "Last-Translator: contacto@gruporeal.org\n"
 "Language-Team: contacto@gruporeal.org\n"
 "MIME-Version: 1.0\n"
@@ -61,19 +61,19 @@ msgstr ""
 msgid "CIF + Impuestos + Nacionalización"
 msgstr ""
 
-#: grupo_express_it/stock_management/doctype/policy/policy.py:117
+#: grupo_express_it/stock_management/doctype/policy/policy.py:120
 msgid "CIF Costs must equal Freight plus Insurance."
 msgstr "Los costos CIF deben ser iguales a Flete más Seguro."
 
-#: grupo_express_it/stock_management/doctype/policy/policy.py:86
+#: grupo_express_it/stock_management/doctype/policy/policy.py:73
 msgid "CIF Costs: Freight must be greater than zero."
 msgstr "Costos CIF: El flete debe ser mayor que cero."
 
-#: grupo_express_it/stock_management/doctype/policy/policy.py:87
+#: grupo_express_it/stock_management/doctype/policy/policy.py:74
 msgid "CIF Costs: Insurance must be greater than zero."
 msgstr "Costos CIF: El seguro debe ser mayor que cero."
 
-#: grupo_express_it/stock_management/doctype/policy/policy.py:85
+#: grupo_express_it/stock_management/doctype/policy/policy.py:72
 msgid "CIF Costs: Total must be greater than zero."
 msgstr "Costos CIF: El total debe ser mayor que cero."
 
@@ -264,7 +264,7 @@ msgstr "Descargar como Excel"
 msgid "Downloading Policies"
 msgstr "Descargando pólizas"
 
-#: grupo_express_it/stock_management/doctype/policy/policy.py:69
+#: grupo_express_it/stock_management/doctype/policy/policy.py:53
 msgid "Exchange Rate must be greater than zero."
 msgstr "La tasa de cambio debe ser mayor que cero."
 
@@ -563,19 +563,23 @@ msgstr ""
 msgid "Nationalization"
 msgstr "Nacionalización"
 
-#: grupo_express_it/stock_management/doctype/policy/policy.py:147
+#: grupo_express_it/stock_management/doctype/policy/policy.py:211
+msgid "Nationalization Cost row {0} does not belong to Policy {1}."
+msgstr "La fila de costos de nacionalización {0} no pertenece a la póliza {1}."
+
+#: grupo_express_it/stock_management/doctype/policy/policy.py:145
 msgid "Nationalization Costs must equal Customs Taxes plus Nationalization Expenses."
 msgstr "Los costos de nacionalización deben ser iguales a Impuestos Aduaneros más Gastos de Nacionalización."
 
-#: grupo_express_it/stock_management/doctype/policy/policy.py:89
+#: grupo_express_it/stock_management/doctype/policy/policy.py:76
 msgid "Nationalization Costs: Customs Taxes must be greater than zero."
 msgstr "Costos de nacionalización: Los impuestos aduaneros deben ser mayores que cero."
 
-#: grupo_express_it/stock_management/doctype/policy/policy.py:90
+#: grupo_express_it/stock_management/doctype/policy/policy.py:77
 msgid "Nationalization Costs: Expenses must be greater than zero."
 msgstr "Costos de nacionalización: Los gastos deben ser mayores que cero."
 
-#: grupo_express_it/stock_management/doctype/policy/policy.py:88
+#: grupo_express_it/stock_management/doctype/policy/policy.py:75
 msgid "Nationalization Costs: Total must be greater than zero."
 msgstr "Costos de nacionalización: El total debe ser mayor que cero."
 
@@ -644,11 +648,11 @@ msgstr "Producto de Póliza"
 msgid "Policy Nationalization Cost"
 msgstr ""
 
-#: grupo_express_it/stock_management/doctype/policy/policy.py:65
+#: grupo_express_it/stock_management/doctype/policy/policy.py:92
 msgid "Policy cancellation is not allowed."
 msgstr "No está permitido cancelar la póliza."
 
-#: grupo_express_it/stock_management/doctype/policy/policy.py:72
+#: grupo_express_it/stock_management/doctype/policy/policy.py:56
 msgid "Policy must contain at least one item."
 msgstr "La póliza debe contener al menos un producto."
 
@@ -728,11 +732,11 @@ msgstr ""
 msgid "Rollo"
 msgstr ""
 
-#: grupo_express_it/stock_management/doctype/policy/policy.py:81
+#: grupo_express_it/stock_management/doctype/policy/policy.py:65
 msgid "Row {0}: FOB Unit Price must be greater than zero."
 msgstr "Fila {0}: El precio unitario FOB debe ser mayor que cero."
 
-#: grupo_express_it/stock_management/doctype/policy/policy.py:79
+#: grupo_express_it/stock_management/doctype/policy/policy.py:63
 msgid "Row {0}: Quantity must be greater than zero."
 msgstr "Fila {0}: La cantidad debe ser mayor que cero."
 
@@ -930,3 +934,4 @@ msgstr ""
 #: grupo_express_it/stock_management/doctype/stock_sales_invoice_item/stock_sales_invoice_item.json
 msgid "Yardas"
 msgstr ""
+
