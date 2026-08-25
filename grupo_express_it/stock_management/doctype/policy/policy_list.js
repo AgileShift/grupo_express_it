@@ -5,16 +5,16 @@ frappe.listview_settings["Policy"] = {
 	has_indicator_for_cancelled: true,
 
 	onload(listview) {
-		listview.page.add_action_item('Descargar Excel Individual', () => {
+		listview.page.add_action_item(__('Download as Excel'), () => {
 			let docs = listview.get_checked_items(true);
 
 			docs.forEach((doc, i) => {
 				window.open('/api/method/grupo_express_it.stock_management.doctype.policy.excel.unique.download?policy=' + doc);
-				frappe.show_progress('Descargando Polizas', i, docs.length + 1, 'Descargando ' + doc, true);
+				frappe.show_progress(__('Downloading Policies'), i, docs.length + 1, 'Downloading ' + doc, true);
 			});
 		});
 
-		listview.page.add_action_item('Descargar Excel Consolidado', () => {
+		listview.page.add_action_item(__('Download Consolidated Excel'), () => {
 			let docs = listview.get_checked_items(true);
 
 			window.open('/api/method/grupo_express_it.stock_management.doctype.policy.excel.consolidated.download?policies=' + docs);
@@ -31,7 +31,7 @@ frappe.listview_settings["Policy"] = {
 
 	button: {
       show: () => true,
-      get_label: () => 'Excel', get_description: () => '',
+      get_label: () => __('Download as Excel'), get_description: () => '',
       action: (doc) => window.open('/api/method/grupo_express_it.stock_management.doctype.policy.excel.unique.download?policy=' + doc.name),
     }
 

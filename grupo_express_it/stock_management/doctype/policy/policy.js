@@ -15,7 +15,7 @@ frappe.ui.form.on("Policy", {
 
 	refresh(frm) {
 		if (!frm.is_new()) {
-			frm.add_custom_button('Download Excel', () => {
+			frm.add_custom_button(__('Download as Excel'), () => {
 				window.open(`/api/method/grupo_express_it.stock_management.doctype.policy.excel.unique.download?policy=${frm.doc.name}`);
 			});
 		}
@@ -38,27 +38,23 @@ frappe.ui.form.on("Policy", {
 	},
 
 	// START Custom Functions
-	calculate_items_totals(frm, item_row = null) {
-		if (item_row) {
-			item_row.qty = flt(item_row.qty); // FIXES: the issue with Paste event -> Sanitize Fields. Invalid returns 0
-			item_row.fob_unit_price = flt(item_row.fob_unit_price);
-		}
+	calculate_items_totals: frappe.utils.debounce(
+		(frm, item_row = null) => {
+			if (item_row) {
+				item_row.qty = flt(item_row.qty); // FIXES: the issue with Paste event -> Sanitize Fields. Invalid returns 0
+				item_row.fob_unit_price = flt(item_row.fob_unit_price);
+			}
 
-		return frm.call('recalculate').then(() => {
-			// Always Refresh. Even when its empty. So we can clear the footer. See grid_make_footer()
-			refresh_many(['items', 'total_qty', 'total_cost', 'total_fob']);
-		});
-	},
+			frm.call('recalculate');
+		}, 100
+	),
 
 	calculate_cif_costs(frm, cif_row = null) {
 		if (cif_row) {
 			cif_row.amount_usd = flt(cif_row.amount_usd); // FIXES: the issue with Paste event -> Sanitize Fields. Invalid returns 0
 		}
 
-		// Recalculate Items Totals
-		frm.events.calculate_items_totals(frm).then(() => {
-			refresh_many(['cif_costs', 'total_cif', 'total_freight', 'total_insurance']);
-		});
+		frm.events.calculate_items_totals(frm);  // Recalculate Items Totals
 	},
 
 	calculate_nationalization_costs(frm, nationalization_row = null) {
@@ -67,10 +63,7 @@ frappe.ui.form.on("Policy", {
 			nationalization_row.exchange_rate = flt(nationalization_row.exchange_rate);
 		}
 
-		// Recalculate Items Totals
-		frm.events.calculate_items_totals(frm).then(() => {
-			refresh_many(['nationalization_costs', 'grand_total_nationalization', 'total_customs_taxes', 'total_nationalization_costs']);
-		});
+		frm.events.calculate_items_totals(frm);  // Recalculate Items Totals
 	}
 });
 
@@ -88,7 +81,7 @@ frappe.ui.form.on("Policy CIF Cost", {
 	provider: (frm, cdt, cdn) => frm.events.sanitize_string_field(locals[cdt][cdn], 'provider', true),
 	description: (frm, cdt, cdn) => frm.events.sanitize_string_field(locals[cdt][cdn], 'description', true),
 
-	type: (frm) => frm.events.calculate_cif_costs(frm),
+	type: (frm, cdt, cdn) => frm.events.calculate_cif_costs(frm, locals[cdt][cdn]),
 	amount_usd: (frm, cdt, cdn) => frm.events.calculate_cif_costs(frm, locals[cdt][cdn]) // Recalculate Totals(CIF and Items)
 });
 
@@ -104,4 +97,3 @@ frappe.ui.form.on("Policy Nationalization Cost", {
 	exchange_rate: (frm, cdt, cdn) => frm.trigger('amount_nio', cdt, cdn),
 	amount_nio: (frm, cdt, cdn) => frm.events.calculate_nationalization_costs(frm, locals[cdt][cdn]) // Recalculate Item Fields and Form Totals
 });
-// 216 | 5 9 12

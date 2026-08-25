@@ -1,4 +1,5 @@
 import frappe
+from frappe import _
 from frappe.model.document import Document
 from frappe.utils import flt
 
@@ -40,45 +41,43 @@ class Policy(Document):
 	# end: auto-generated types
 
 	def autoname(self):
-		""" Set name as Policy Name. TODO: We assume that policy comes sanitized from the form: L - ##### """
+		""" Set name as Policy Name. We assume that policy comes sanitized from the form: L - ##### """
 		self.name = f'{self.policy} - {frappe.utils.getdate(self.posting_date).year}'
 
 	def before_validate(self):
 		# Sanitize fields
 		self.exchange_rate = flt(self.exchange_rate)
-		self._calculate()
+		if self.exchange_rate <= 0:
+			frappe.throw(_("Exchange Rate must be greater than zero."))
 
-	def validate(self):
-		""" Don't Allow save the doc without these fields missing. """
-		if not self.exchange_rate:
-			frappe.throw("Exchange Rate is empty.")
+		if not self.items:
+			frappe.throw(_("Policy must contain at least one item."))
 
 		for item in self.items:
-			if not item.qty:
-				frappe.throw(f"Fila {item.idx}: No tiene Cantidad.")
-			if not item.fob_unit_price:
-				frappe.throw(f"Fila {item.idx}: No tiene FOB Unit Price.")
+			item.qty = flt(item.qty)
+			item.fob_unit_price = flt(item.fob_unit_price)
+
+			if item.qty <= 0:
+				frappe.throw(_("Row {0}: Quantity must be greater than zero.").format(item.idx))
+			if item.fob_unit_price <= 0:
+				frappe.throw(_("Row {0}: FOB Unit Price must be greater than zero.").format(item.idx))
+
+		self._calculate()
 
 	def before_submit(self):
-		""" At this point the document is no longer editable """
-		# Enforce before submit
-		if not self.total_cif:
-			frappe.throw("<b>Costos CIF</b>: Tiene valores en 0.")
+		""" At this point the document is no longer editable. """
+		required_totals = (
+			(self.total_cif, _("CIF Costs: Total must be greater than zero.")),
+			(self.total_freight, _("CIF Costs: Freight must be greater than zero.")),
+			(self.total_insurance, _("CIF Costs: Insurance must be greater than zero.")),
+			(self.grand_total_nationalization, _("Nationalization Costs: Total must be greater than zero.")),
+			(self.total_customs_taxes, _("Nationalization Costs: Customs Taxes must be greater than zero.")),
+			(self.total_nationalization_costs, _("Nationalization Costs: Expenses must be greater than zero.")),
+		)
 
-		if not self.total_freight:
-			frappe.throw("<b>Costos CIF</b>: No Tiene costos de Flete.")
-
-		if not self.total_insurance:
-			frappe.throw("<b>Costos CIF</b>: No tiene costos de Seguro")
-
-		if not self.grand_total_nationalization:
-			frappe.throw("<b>Costos de Nacionalización</b>: Tiene valores en 0.")
-
-		if not self.total_customs_taxes:
-			frappe.throw("<b>Costos de Nacionalización</b>: No Tiene Impuestos Aduaneros.")
-
-		if not self.total_nationalization_costs:
-			frappe.throw("<b>Costos de Nacionalización</b>: No Tiene costos de Nacionalización.")
+		for value, message in required_totals:
+			if flt(value) <= 0:
+				frappe.throw(message)
 
 		self.per_billed = 0
 		self.status = 'Not Billed'
@@ -88,7 +87,7 @@ class Policy(Document):
 			item.stock_value = item.total_price
 
 	def on_cancel(self):
-		raise NotImplementedError('Por ahora no esta permitida la cancelacion.')
+		frappe.throw(_("Policy cancellation is not allowed."))
 
 	def _calculate(self):
 		"""
@@ -110,7 +109,7 @@ class Policy(Document):
 				total_insurance += cif.amount_usd
 
 		if total_cif != (total_freight + total_insurance):
-			return frappe.throw("Total CIF: Freight and Insurance are not equal.")
+			frappe.throw(_("CIF Costs must equal Freight plus Insurance."))
 
 		# USD Values
 		self.total_cif = total_cif
@@ -134,27 +133,19 @@ class Policy(Document):
 			elif nationalization.type == 'Nationalization':
 				total_nationalization_costs += nationalization.amount_nio
 
-		if grand_total_nationalization != (total_customs_taxes + total_nationalization_costs):
-			return frappe.throw("Total Nationalization: Taxes and Nationalization Expenses are not equal.")
-
 		# NIO Values
-		self.grand_total_nationalization = grand_total_nationalization
-		self.total_customs_taxes = total_customs_taxes
-		self.total_nationalization_costs = total_nationalization_costs
+		self.grand_total_nationalization = flt(grand_total_nationalization, 2)
+		self.total_customs_taxes = flt(total_customs_taxes, 2)
+		self.total_nationalization_costs = flt(total_nationalization_costs, 2)
+
+		if self.grand_total_nationalization != (self.total_customs_taxes + self.total_nationalization_costs):
+			frappe.throw(_("Nationalization Costs must equal Customs Taxes plus Nationalization Expenses."))
 
 		# Items #
-
-		if not self.items:
-			return frappe.throw("Policy has no items.")
 
 		# Pre-calculate Total FOB, and Unit FOB, this is used to determine the factors
 		total_qty, total_fob = 0.00, 0.00
 		for item in self.items:
-			if not item.qty:
-				frappe.throw(f"<b>Fila {item.idx}:</b> No tiene cantidad.")  # Prevent ZeroDivisionError
-			else:
-				item.qty = flt(item.qty)
-
 			item.fob_total_price = item.qty * item.fob_unit_price  # Calculate Item Row Total FOB Price
 
 			total_qty += item.qty
@@ -194,5 +185,3 @@ class Policy(Document):
 	@frappe.whitelist(allow_guest=False)
 	def recalculate(self):
 		self.before_validate()
-
-# 62 | 5 14 46

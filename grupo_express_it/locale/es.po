@@ -7,8 +7,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: Grupo Express Invoice Tool VERSION\n"
 "Report-Msgid-Bugs-To: contacto@gruporeal.org\n"
-"POT-Creation-Date: 2026-08-24 16:07-0745\n"
-"PO-Revision-Date: 2026-08-22 15:23-1615\n"
+"POT-Creation-Date: 2026-08-24 18:14-0745\n"
+"PO-Revision-Date: 2026-08-22 15:23-1945\n"
 "Last-Translator: contacto@gruporeal.org\n"
 "Language-Team: contacto@gruporeal.org\n"
 "MIME-Version: 1.0\n"
@@ -60,6 +60,22 @@ msgstr ""
 #: grupo_express_it/stock_management/doctype/policy_item/policy_item.json
 msgid "CIF + Impuestos + Nacionalización"
 msgstr ""
+
+#: grupo_express_it/stock_management/doctype/policy/policy.py:117
+msgid "CIF Costs must equal Freight plus Insurance."
+msgstr "Los costos CIF deben ser iguales a Flete más Seguro."
+
+#: grupo_express_it/stock_management/doctype/policy/policy.py:86
+msgid "CIF Costs: Freight must be greater than zero."
+msgstr "Costos CIF: El flete debe ser mayor que cero."
+
+#: grupo_express_it/stock_management/doctype/policy/policy.py:87
+msgid "CIF Costs: Insurance must be greater than zero."
+msgstr "Costos CIF: El seguro debe ser mayor que cero."
+
+#: grupo_express_it/stock_management/doctype/policy/policy.py:85
+msgid "CIF Costs: Total must be greater than zero."
+msgstr "Costos CIF: El total debe ser mayor que cero."
 
 #. Label of the cif_total_usd (Currency) field in DocType 'Policy Item'
 #: grupo_express_it/stock_management/doctype/policy_item/policy_item.json
@@ -233,6 +249,24 @@ msgstr "Impuestos Aduaneros"
 #: grupo_express_it/stock_management/doctype/stock_sales_invoice_item/stock_sales_invoice_item.json
 msgid "Docenas"
 msgstr "Docenas"
+
+#: grupo_express_it/stock_management/doctype/policy/policy_list.js:17
+msgid "Download Consolidated Excel"
+msgstr "Descargar Excel consolidado"
+
+#: grupo_express_it/stock_management/doctype/policy/policy.js:18
+#: grupo_express_it/stock_management/doctype/policy/policy_list.js:8
+#: grupo_express_it/stock_management/doctype/policy/policy_list.js:34
+msgid "Download as Excel"
+msgstr "Descargar como Excel"
+
+#: grupo_express_it/stock_management/doctype/policy/policy_list.js:13
+msgid "Downloading Policies"
+msgstr "Descargando pólizas"
+
+#: grupo_express_it/stock_management/doctype/policy/policy.py:69
+msgid "Exchange Rate must be greater than zero."
+msgstr "La tasa de cambio debe ser mayor que cero."
 
 #. Label of the exp (Data) field in DocType 'Sales Invoice Item'
 #: grupo_express_it/grupo_express_invoice_tool/doctype/sales_invoice_item/sales_invoice_item.json
@@ -529,6 +563,22 @@ msgstr ""
 msgid "Nationalization"
 msgstr "Nacionalización"
 
+#: grupo_express_it/stock_management/doctype/policy/policy.py:147
+msgid "Nationalization Costs must equal Customs Taxes plus Nationalization Expenses."
+msgstr "Los costos de nacionalización deben ser iguales a Impuestos Aduaneros más Gastos de Nacionalización."
+
+#: grupo_express_it/stock_management/doctype/policy/policy.py:89
+msgid "Nationalization Costs: Customs Taxes must be greater than zero."
+msgstr "Costos de nacionalización: Los impuestos aduaneros deben ser mayores que cero."
+
+#: grupo_express_it/stock_management/doctype/policy/policy.py:90
+msgid "Nationalization Costs: Expenses must be greater than zero."
+msgstr "Costos de nacionalización: Los gastos deben ser mayores que cero."
+
+#: grupo_express_it/stock_management/doctype/policy/policy.py:88
+msgid "Nationalization Costs: Total must be greater than zero."
+msgstr "Costos de nacionalización: El total debe ser mayor que cero."
+
 #. Option for the 'Status' (Select) field in DocType 'Policy'
 #: grupo_express_it/stock_management/doctype/policy/policy.json
 msgid "Not Billed"
@@ -593,6 +643,14 @@ msgstr "Producto de Póliza"
 #: grupo_express_it/stock_management/doctype/policy_nationalization_cost/policy_nationalization_cost.json
 msgid "Policy Nationalization Cost"
 msgstr ""
+
+#: grupo_express_it/stock_management/doctype/policy/policy.py:65
+msgid "Policy cancellation is not allowed."
+msgstr "No está permitido cancelar la póliza."
+
+#: grupo_express_it/stock_management/doctype/policy/policy.py:72
+msgid "Policy must contain at least one item."
+msgstr "La póliza debe contener al menos un producto."
 
 #. Label of the margin_rate_or_amount (Float) field in DocType 'Pricing Rule'
 #. Label of the margin_rate_or_amount (Float) field in DocType 'Sales Invoice
@@ -669,6 +727,14 @@ msgstr ""
 #: grupo_express_it/stock_management/doctype/stock_sales_invoice_item/stock_sales_invoice_item.json
 msgid "Rollo"
 msgstr ""
+
+#: grupo_express_it/stock_management/doctype/policy/policy.py:81
+msgid "Row {0}: FOB Unit Price must be greater than zero."
+msgstr "Fila {0}: El precio unitario FOB debe ser mayor que cero."
+
+#: grupo_express_it/stock_management/doctype/policy/policy.py:79
+msgid "Row {0}: Quantity must be greater than zero."
+msgstr "Fila {0}: La cantidad debe ser mayor que cero."
 
 #. Name of a DocType
 #. Label of a Link in the Selling Workspace
@@ -864,4 +930,3 @@ msgstr ""
 #: grupo_express_it/stock_management/doctype/stock_sales_invoice_item/stock_sales_invoice_item.json
 msgid "Yardas"
 msgstr ""
-
