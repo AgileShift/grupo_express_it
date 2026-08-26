@@ -1,6 +1,7 @@
 import time
 
 import frappe
+from frappe import _
 from frappe.model.document import Document
 from frappe.utils import in_words
 
@@ -84,7 +85,7 @@ def send_sales_invoice(doc_name: str, customer_name: str, total: float) -> None:
 
 	frappe.db.set_value('Sales Invoice', doc_name, 'whatsapp', True, update_modified=False)  # Mark as sent
 
-	frappe.msgprint(success_message, 'Exito', indicator='green')
+	frappe.msgprint(success_message, _('Success'), indicator='green')
 
 
 @frappe.whitelist(allow_guest=False)
