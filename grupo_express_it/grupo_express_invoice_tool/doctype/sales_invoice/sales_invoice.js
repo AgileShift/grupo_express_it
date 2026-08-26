@@ -42,7 +42,8 @@ frappe.ui.form.on("Sales Invoice", {
 				method: 'grupo_express_it.grupo_express_invoice_tool.doctype.sales_invoice.sales_invoice.send_sales_invoice',
 				args: {
 					doc_name: frm.doc.name,
-					customer_name: frm.doc.customer
+					customer_name: frm.doc.customer,
+					total: frm.doc.total,
 				},
 				freeze: true,
 				freeze_message: 'Conectando con Meta...',

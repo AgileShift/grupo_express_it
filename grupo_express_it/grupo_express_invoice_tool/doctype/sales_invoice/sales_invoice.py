@@ -29,44 +29,62 @@ class SalesInvoice(Document):
 
 
 @frappe.whitelist(allow_guest=False)
-def send_sales_invoice(doc_name: str, customer_name: str) -> None:
+def send_sales_invoice(doc_name: str, customer_name: str, total: float) -> None:
+	template_name = 'sales_invoice_whatsapp_notification-es'
+	template_status = frappe.db.get_value('WhatsApp Templates', template_name, 'status')
+
+	message = (
+		f"Hola!\n\n"
+		f"Factura de *{customer_name}*\n"
+		f"*{doc_name}*\n"
+		f"Por un valor de *{frappe.utils.fmt_money(total, precision=2, currency='USD')}*\n\n"
+		f"Adjunto el documento."
+	)
+
 	# Remember -> No Diacritics in file names, because URL encoding issues may arise
-	pdf_bytes = frappe.get_print('Sales Invoice', doc_name, print_format='Sales Invoice WhatsApp', as_pdf=True, pdf_options={}, pdf_generator='wkhtmltopdf')
+	pdf_bytes = frappe.get_print('Sales Invoice', doc_name, print_format='Sales Invoice WhatsApp', as_pdf=True, pdf_options={}, pdf_generator='chrome')
 
 	file = frappe.new_doc(
 		doctype='File',
 		attached_to_doctype='Sales Invoice',
 		attached_to_name=doc_name,
 		file_name=f"{doc_name}.pdf",  # Frappe automatically append a unique hash if file with same name exists
-		file_type='pdf',  # JPG or PDF
+		file_type='pdf',
 		is_private=False,
 		content=pdf_bytes
 	).insert(ignore_permissions=True)
 
 	for recipient in frappe.get_all('WhatsApp Recipient', pluck='mobile_number'):
-		frappe.new_doc(
+		whatsapp_message = frappe.new_doc(
 			doctype='WhatsApp Message',
 			type='Outgoing',
 			to=recipient,
 			label=f"PDF: {doc_name} | {recipient}",
 			attach=file.file_url,
-			file_name=f"{doc_name} - {customer_name}.pdf",  # Used by WhatsApp to show as the filename
-			# message=f"Hola, {customer_name}\n\n{doc_name} página {i}.\nAdjunto la Imagen",
+			file_name=f"{doc_name} - {customer_name}.pdf",
 			content_type='document',
 			reference_doctype='Sales Invoice',
 			reference_name=doc_name,
-			use_template=True,
-			template='sales_invoice_whatsapp_notification-es',
-			# message_type='Template',
-			# template_parameters=[],
-		).insert(ignore_permissions=True)
+		)
 
-		frappe.msgprint(f"Mensaje Enviado a {recipient}", alert=True, indicator='blue')
+		if template_status == 'APPROVED':
+			whatsapp_message.use_template = True
+			whatsapp_message.template = template_name
+		else:
+			whatsapp_message.use_template = False
+			whatsapp_message.message = message
+
+		whatsapp_message.insert(ignore_permissions=True)
 		time.sleep(0.15)  # To avoid rate limiting
+
+	success_message = (
+		'PDF enviado mediante plantilla por WhatsApp'
+		if template_status == 'APPROVED' else 'PDF enviado mediante Mensaje por WhatsApp.'
+	)
 
 	frappe.db.set_value('Sales Invoice', doc_name, 'whatsapp', True, update_modified=False)  # Mark as sent
 
-	frappe.msgprint('Enviado correctamente por WhatsApp', 'Exito', indicator='green')
+	frappe.msgprint(success_message, 'Exito', indicator='green')
 
 
 @frappe.whitelist(allow_guest=False)
@@ -99,6 +117,7 @@ def items_with_pricing_rule_query(doctype, txt, searchfield, start, page_len, fi
 			'start': start,
 			'page_len': page_len
 		})
+
 
 """ Save this Piece of Code to later on Work on jpg Mode
 	elif mode == 'jpg':
