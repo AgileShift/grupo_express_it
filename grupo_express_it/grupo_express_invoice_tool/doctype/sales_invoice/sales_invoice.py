@@ -42,7 +42,7 @@ def send_sales_invoice(doc_name: str, customer_name: str, total: float) -> None:
 	)
 
 	# Remember -> No Diacritics in file names, because URL encoding issues may arise
-	pdf_bytes = frappe.get_print('Sales Invoice', doc_name, print_format='Sales Invoice WhatsApp', as_pdf=True, pdf_options={}, pdf_generator='chrome')
+	pdf_bytes = frappe.get_print('Sales Invoice', doc_name, print_format='Sales Invoice WhatsApp', as_pdf=True, pdf_options={}, pdf_generator='wkhtmltopdf')
 
 	file = frappe.new_doc(
 		doctype='File',
