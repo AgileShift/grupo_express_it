@@ -9,9 +9,9 @@
  "editable_grid": 1,
  "engine": "InnoDB",
  "field_order": [
-  "customer_name",
-  "column_break_2",
   "customer",
+  "column_break_2",
+  "customer_name",
   "section_break_6",
   "total",
   "column_break_3",
@@ -47,7 +47,9 @@
    "in_list_view": 1,
    "in_preview": 1,
    "in_standard_filter": 1,
-   "label": "Customer Name"
+   "label": "Customer Name",
+   "read_only": 1,
+   "reqd": 1
   },
   {
    "fieldname": "column_break_3",
@@ -152,7 +154,7 @@
    "link_fieldname": "reference_name"
   }
  ],
- "modified": "2026-08-22 16:13:16.418262",
+ "modified": "2026-08-27 13:53:01.980374",
  "modified_by": "Administrator",
  "module": "Grupo Express Invoice Tool",
  "name": "Sales Invoice",

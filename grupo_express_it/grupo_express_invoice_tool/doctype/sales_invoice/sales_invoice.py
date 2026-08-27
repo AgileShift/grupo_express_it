@@ -17,7 +17,7 @@ class SalesInvoice(Document):
 		from grupo_express_it.grupo_express_invoice_tool.doctype.sales_invoice_item.sales_invoice_item import SalesInvoiceItem
 
 		customer: DF.Link
-		customer_name: DF.Data | None
+		customer_name: DF.Data
 		in_words: DF.Data | None
 		items: DF.Table[SalesInvoiceItem]
 		posting_date: DF.Date | None

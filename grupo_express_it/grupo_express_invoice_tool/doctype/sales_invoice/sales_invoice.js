@@ -1,3 +1,62 @@
+function show_customer_alias_dialog(frm, customer, aliases) {
+	const radio_name = `customer-alias-${frappe.utils.get_random(8)}`;
+	const alias_rows = aliases.map((alias, index) => `
+		<tr class="customer-alias-row" style="cursor: pointer;">
+			<td class="text-center" style="width: 48px;">
+				<input type="radio" name="${radio_name}" value="${index}">
+			</td>
+			<td>${frappe.utils.escape_html(alias)}</td>
+		</tr>
+	`).join('');
+
+	const dialog = new frappe.ui.Dialog({
+		title: __('Seleccionar alias'),
+		fields: [{
+			fieldname: 'aliases',
+			fieldtype: 'HTML',
+			options: `
+				<p>${__('Selecciona el nombre que aparecerá en el recibo.')}</p>
+				<p class="text-muted">${__('Cliente')}: ${frappe.utils.escape_html(customer)}</p>
+				<table class="table table-bordered">
+					<thead>
+						<tr>
+							<th></th>
+							<th>${__('Alias')}</th>
+						</tr>
+					</thead>
+					<tbody>${alias_rows}</tbody>
+				</table>
+			`,
+		}],
+		primary_action_label: __('Usar este alias'),
+		primary_action: async () => {
+			const selected_index = dialog.$wrapper
+				.find(`input[name="${radio_name}"]:checked`)
+				.val();
+
+			if (selected_index === undefined || frm.doc.customer !== customer) return;
+
+			await frm.set_value('customer_name', aliases[Number(selected_index)]);
+			dialog.hide();
+		},
+		secondary_action_label: __('Usar nombre principal'),
+		secondary_action: () => dialog.hide(),
+	});
+
+	dialog.$wrapper.on('click', '.customer-alias-row', function (event) {
+		if (!$(event.target).is('input[type="radio"]')) {
+			$(this).find('input[type="radio"]').prop('checked', true).trigger('change');
+		}
+	});
+
+	dialog.$wrapper.on('change', `input[name="${radio_name}"]`, () => {
+		dialog.get_primary_btn().prop('disabled', false);
+	});
+
+	dialog.show();
+	dialog.get_primary_btn().prop('disabled', true);
+}
+
 frappe.ui.form.on("Sales Invoice", {
 	setup(frm) {
 		frm.page.sidebar.toggle(false);
@@ -54,14 +113,33 @@ frappe.ui.form.on("Sales Invoice", {
 		});
 	},
 
-	customer(frm) {
-		if (!frm.doc.customer) {
-			frm.doc.customer_name = '';
-		}
+	async customer(frm) {
+		const customer = frm.doc.customer;
+
 		frm.doc.in_words = '';
 		frm.clear_table('items');
 
 		frm.refresh_fields(); // Refresh all changes
+
+		if (!customer) {
+			frm.doc.customer_name = '';
+			frm.refresh_field('customer_name');
+			return;
+		}
+
+		const {message} = await frappe.db.get_value('Customer', customer, 'aliases');
+		if (frm.doc.customer !== customer) return;
+
+		const aliases = [...new Set(
+			(message?.aliases || '')
+				.split(/\r?\n/)
+				.map(alias => alias.trim())
+				.filter(Boolean)
+		)];
+
+		if (aliases.length) {
+			show_customer_alias_dialog(frm, customer, aliases);
+		}
 	},
 
 	calculate_invoice_total_and_words(frm) {
