@@ -33,6 +33,29 @@
   {
    "child": 0,
    "collapsible": 1,
+   "icon": "money-coins-1",
+   "indent": 0,
+   "keep_closed": 0,
+   "label": "Payment Entry",
+   "link_to": "Payment Entry",
+   "link_type": "DocType",
+   "show_arrow": 0,
+   "type": "Link"
+  },
+  {
+   "child": 0,
+   "collapsible": 1,
+   "icon": "setting-gear",
+   "indent": 1,
+   "keep_closed": 1,
+   "label": "Setup",
+   "link_type": "DocType",
+   "show_arrow": 0,
+   "type": "Section Break"
+  },
+  {
+   "child": 1,
+   "collapsible": 1,
    "icon": "circle-user-round",
    "indent": 0,
    "keep_closed": 0,
@@ -43,7 +66,7 @@
    "type": "Link"
   },
   {
-   "child": 0,
+   "child": 1,
    "collapsible": 1,
    "icon": "box",
    "indent": 0,
@@ -55,7 +78,7 @@
    "type": "Link"
   }
  ],
- "modified": "2026-07-17 14:45:56.854125",
+ "modified": "2026-08-28 17:27:41.080687",
  "modified_by": "Administrator",
  "module": "Grupo Express Invoice Tool",
  "name": "Selling",

@@ -34,7 +34,7 @@
    "type": "Link"
   }
  ],
- "modified": "2026-08-27 22:01:28.862030",
+ "modified": "2026-08-28 17:08:09.937429",
  "modified_by": "Administrator",
  "module": "Grupo Express Invoice Tool",
  "name": "Selling",
@@ -55,18 +55,20 @@
    "type": "DocType"
   },
   {
-   "color": "Grey",
-   "doc_view": "List",
-   "label": "Payment Entry",
-   "link_to": "Payment Entry",
-   "stats_filter": "[]",
-   "type": "DocType"
-  },
-  {
+   "color": "Blue",
    "doc_view": "List",
    "icon": "sell",
    "label": "Sales Invoice",
    "link_to": "Sales Invoice",
+   "stats_filter": "[[\"Sales Invoice\",\"status\",\"!=\",\"Cancelled\"]]",
+   "type": "DocType"
+  },
+  {
+   "color": "Green",
+   "doc_view": "List",
+   "label": "Payment Entry",
+   "link_to": "Payment Entry",
+   "stats_filter": "[[\"Payment Entry\",\"docstatus\",\"!=\",\"2\"]]",
    "type": "DocType"
   },
   {
