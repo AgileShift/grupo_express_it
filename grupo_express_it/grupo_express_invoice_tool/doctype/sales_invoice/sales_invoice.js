@@ -63,7 +63,7 @@ frappe.ui.form.on("Sales Invoice", {
 	},
 
 	onload(frm) {
-		frm.set_currency_labels(['total'], 'USD');
+		frm.set_currency_labels(['total', 'outstanding_amount'], 'USD');
 
 		frm.set_query('item', 'items', (doc) => {
 			if (!doc.customer) { // It's fastest to throw from here than server side code.
