@@ -27,7 +27,7 @@
    "in_list_view": 1,
    "in_standard_filter": 1,
    "label": "Type",
-   "options": "Bank\nCash\nCheck",
+   "options": "\nBank\nCash\nCheck",
    "reqd": 1
   },
   {
@@ -37,6 +37,7 @@
    "in_list_view": 1,
    "in_standard_filter": 1,
    "label": "Currency",
+   "link_filters": "[[\"Currency\",\"enabled\",\"=\",1]]",
    "options": "Currency",
    "reqd": 1
   }
@@ -44,10 +45,10 @@
  "grid_page_length": 50,
  "index_web_pages_for_search": 1,
  "links": [],
- "modified": "2026-08-27 21:46:17.676160",
+ "modified": "2026-08-27 22:30:13.660934",
  "modified_by": "Administrator",
  "module": "Grupo Express Invoice Tool",
- "name": "Mode of Payment",
+ "name": "Mode Of Payment",
  "naming_rule": "Set by user",
  "owner": "Administrator",
  "permissions": [

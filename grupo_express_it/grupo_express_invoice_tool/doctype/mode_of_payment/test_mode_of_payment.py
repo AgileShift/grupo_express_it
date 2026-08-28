@@ -1,7 +1,3 @@
-# Copyright (c) 2026, Agile Shift and Contributors
-# See license.txt
-
-# import frappe
 from frappe.tests import IntegrationTestCase
 
 
@@ -12,10 +8,9 @@ EXTRA_TEST_RECORD_DEPENDENCIES = []  # eg. ["User"]
 IGNORE_TEST_RECORD_DEPENDENCIES = []  # eg. ["User"]
 
 
-
-class IntegrationTestModeofPayment(IntegrationTestCase):
+class IntegrationTestModeOfPayment(IntegrationTestCase):
 	"""
-	Integration tests for ModeofPayment.
+	Integration tests for ModeOfPayment.
 	Use this class for testing interactions between multiple components.
 	"""
 
