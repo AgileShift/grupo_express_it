@@ -11,24 +11,26 @@
  "field_order": [
   "customer",
   "customer_name",
-  "column_break_2",
+  "column_break_dpip",
   "posting_date",
   "posting_time",
+  "column_break_2",
+  "status",
+  "amended_from",
   "currency",
   "section_break_8",
   "items",
   "section_break_6",
   "total",
-  "outstanding_amount",
-  "column_break_3",
   "in_words",
-  "section_break_xcnw",
-  "whatsapp",
-  "column_break_bcpz",
-  "amended_from"
+  "column_break_3",
+  "outstanding_amount",
+  "column_break_xmvn",
+  "whatsapp"
  ],
  "fields": [
   {
+   "bold": 1,
    "fieldname": "customer",
    "fieldtype": "Link",
    "in_global_search": 1,
@@ -56,7 +58,6 @@
    "fieldtype": "Column Break"
   },
   {
-   "bold": 1,
    "default": "Today",
    "fieldname": "posting_date",
    "fieldtype": "Date",
@@ -126,15 +127,7 @@
    "reqd": 1
   },
   {
-   "collapsible": 1,
-   "fieldname": "section_break_xcnw",
-   "fieldtype": "Section Break"
-  },
-  {
-   "fieldname": "column_break_bcpz",
-   "fieldtype": "Column Break"
-  },
-  {
+   "bold": 1,
    "fieldname": "amended_from",
    "fieldtype": "Link",
    "label": "Amended From",
@@ -169,6 +162,26 @@
    "options": "Currency",
    "read_only": 1,
    "reqd": 1
+  },
+  {
+   "bold": 1,
+   "default": "Draft",
+   "fieldname": "status",
+   "fieldtype": "Select",
+   "in_list_view": 1,
+   "in_standard_filter": 1,
+   "label": "Status",
+   "options": "Draft\nUnpaid\nPartly Paid\nPaid\nCancelled",
+   "read_only": 1,
+   "reqd": 1
+  },
+  {
+   "fieldname": "column_break_dpip",
+   "fieldtype": "Column Break"
+  },
+  {
+   "fieldname": "column_break_xmvn",
+   "fieldtype": "Column Break"
   }
  ],
  "is_submittable": 1,
@@ -192,7 +205,7 @@
    "link_fieldname": "attached_to_name"
   }
  ],
- "modified": "2026-08-28 12:44:59.840707",
+ "modified": "2026-08-28 16:49:03.778084",
  "modified_by": "Administrator",
  "module": "Grupo Express Invoice Tool",
  "name": "Sales Invoice",
@@ -217,7 +230,20 @@
  "show_name_in_global_search": 1,
  "sort_field": "modified",
  "sort_order": "DESC",
- "states": [],
+ "states": [
+  {
+   "color": "Orange",
+   "title": "Unpaid"
+  },
+  {
+   "color": "Yellow",
+   "title": "Partly Paid"
+  },
+  {
+   "color": "Green",
+   "title": "Paid"
+  }
+ ],
  "track_changes": 1,
  "track_seen": 1
 }
