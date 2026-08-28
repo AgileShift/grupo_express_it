@@ -25,12 +25,33 @@ class SalesInvoice(Document):
 		outstanding_amount: DF.Currency
 		posting_date: DF.Date | None
 		posting_time: DF.Time | None
+		status: DF.Literal["Draft", "Unpaid", "Partly Paid", "Paid", "Cancelled"]
 		total: DF.Currency
 		whatsapp: DF.Check
 	# end: auto-generated types
 
+	def before_validate(self):
+		self._set_status()
+
 	def before_submit(self):
 		self.outstanding_amount = self.total
+		self._set_status()
+
+	def before_cancel(self):
+		self.outstanding_amount = 0.00
+		self._set_status()
+
+	def _set_status(self) -> None:
+		if self.docstatus == 0:
+			self.status = "Draft"
+		elif self.docstatus == 2:
+			self.status = "Cancelled"
+		elif self.outstanding_amount <= 0:
+			self.status = "Paid"
+		elif self.outstanding_amount < self.total:
+			self.status = "Partly Paid"
+		else:
+			self.status = "Unpaid"
 
 	@frappe.whitelist(allow_guest=False)
 	def money_in_words(self) -> None:
