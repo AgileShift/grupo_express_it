@@ -12,10 +12,10 @@
  "engine": "InnoDB",
  "field_order": [
   "code",
+  "aliases",
+  "column_break_3",
   "full_name",
   "mobile_no",
-  "column_break_3",
-  "aliases",
   "ruc",
   "email",
   "section_break_5",
@@ -32,6 +32,7 @@
    "options": "Phone"
   },
   {
+   "bold": 1,
    "fieldname": "full_name",
    "fieldtype": "Data",
    "in_global_search": 1,
@@ -67,7 +68,6 @@
    "label": "Alias"
   },
   {
-   "allow_in_quick_entry": 1,
    "bold": 1,
    "description": "Customer Code",
    "fieldname": "code",
@@ -94,9 +94,13 @@
   {
    "link_doctype": "Sales Invoice",
    "link_fieldname": "customer"
+  },
+  {
+   "link_doctype": "Payment Entry",
+   "link_fieldname": "customer"
   }
  ],
- "modified": "2026-08-22 16:30:24.336553",
+ "modified": "2026-08-27 22:08:48.411013",
  "modified_by": "Administrator",
  "module": "Grupo Express Invoice Tool",
  "name": "Customer",
@@ -119,8 +123,9 @@
  "row_format": "Dynamic",
  "search_fields": "code,full_name,aliases,mobile_no",
  "show_name_in_global_search": 1,
- "sort_field": "modified",
+ "sort_field": "creation",
  "sort_order": "DESC",
  "states": [],
+ "title_field": "full_name",
  "track_changes": 1
 }
