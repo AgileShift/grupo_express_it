@@ -10,18 +10,17 @@
  "engine": "InnoDB",
  "field_order": [
   "customer",
-  "column_break_2",
   "customer_name",
-  "section_break_6",
-  "total",
-  "column_break_3",
-  "in_words",
+  "column_break_2",
+  "posting_date",
+  "posting_time",
   "section_break_8",
   "items",
-  "section_break_10",
-  "posting_date",
-  "column_break_11",
-  "posting_time",
+  "section_break_6",
+  "total",
+  "outstanding_amount",
+  "column_break_3",
+  "in_words",
   "section_break_xcnw",
   "whatsapp",
   "column_break_bcpz",
@@ -32,7 +31,6 @@
    "fieldname": "customer",
    "fieldtype": "Link",
    "in_global_search": 1,
-   "in_preview": 1,
    "in_standard_filter": 1,
    "label": "Customer",
    "options": "Customer",
@@ -40,13 +38,13 @@
    "search_index": 1
   },
   {
+   "description": "Alias",
    "fetch_from": "customer.full_name",
    "fetch_if_empty": 1,
    "fieldname": "customer_name",
    "fieldtype": "Data",
    "in_global_search": 1,
    "in_list_view": 1,
-   "in_preview": 1,
    "in_standard_filter": 1,
    "label": "Customer Name",
    "read_only": 1,
@@ -95,11 +93,9 @@
   {
    "bold": 1,
    "default": "0.00",
-   "depends_on": "items",
    "fieldname": "total",
    "fieldtype": "Currency",
    "in_list_view": 1,
-   "in_preview": 1,
    "label": "Total",
    "non_negative": 1,
    "precision": "2",
@@ -112,15 +108,8 @@
   },
   {
    "fieldname": "section_break_8",
-   "fieldtype": "Section Break"
-  },
-  {
-   "fieldname": "column_break_11",
-   "fieldtype": "Column Break"
-  },
-  {
-   "fieldname": "section_break_10",
-   "fieldtype": "Section Break"
+   "fieldtype": "Section Break",
+   "hide_border": 1
   },
   {
    "bold": 1,
@@ -135,6 +124,7 @@
    "reqd": 1
   },
   {
+   "collapsible": 1,
    "fieldname": "section_break_xcnw",
    "fieldtype": "Section Break"
   },
@@ -151,6 +141,19 @@
    "print_hide": 1,
    "read_only": 1,
    "search_index": 1
+  },
+  {
+   "bold": 1,
+   "default": "0.00",
+   "depends_on": "eval: doc.docstatus == 1",
+   "fieldname": "outstanding_amount",
+   "fieldtype": "Currency",
+   "in_list_view": 1,
+   "label": "Outstanding Amount",
+   "non_negative": 1,
+   "precision": "2",
+   "read_only": 1,
+   "reqd": 1
   }
  ],
  "is_submittable": 1,
@@ -174,7 +177,7 @@
    "link_fieldname": "attached_to_name"
   }
  ],
- "modified": "2026-08-27 22:00:06.733212",
+ "modified": "2026-08-28 11:57:58.276993",
  "modified_by": "Administrator",
  "module": "Grupo Express Invoice Tool",
  "name": "Sales Invoice",

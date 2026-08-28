@@ -21,13 +21,26 @@ class SalesInvoice(Document):
 		customer_name: DF.Data
 		in_words: DF.Data | None
 		items: DF.Table[SalesInvoiceItem]
+		outstanding_amount: DF.Currency
 		posting_date: DF.Date | None
 		posting_time: DF.Time | None
 		total: DF.Currency
 		whatsapp: DF.Check
 	# end: auto-generated types
 
-	pass
+	def before_submit(self):
+		self.outstanding_amount = self.total
+
+	@frappe.whitelist(allow_guest=False)
+	def money_in_words(self) -> None:
+		whole, _, fraction = str(self.total).partition('.')  # Split the number and the fraction. Even if number is integer
+
+		out = '{0} dólares'.format(in_words(whole)[:-1] if whole[-1:] == '1' else in_words(whole))  # Ends with 1 then trim last char
+
+		if fraction and fraction[:2] not in ['0', '00']:  # same as float(number).is_integer(). check if 2 first digits are zeros
+			out += ' con {0}/100'.format(fraction[:2] + '0' if len(fraction[:2]) == 1 else fraction[:2])  # Fraction is one digit add a zero
+
+		self.in_words = out.capitalize()
 
 
 @frappe.whitelist(allow_guest=False)
@@ -87,18 +100,6 @@ def send_sales_invoice(doc_name: str, customer_name: str, total: float) -> None:
 	frappe.db.set_value('Sales Invoice', doc_name, 'whatsapp', True, update_modified=False)  # Mark as sent
 
 	frappe.msgprint(success_message, _('Success'), indicator='green')
-
-
-@frappe.whitelist(allow_guest=False)
-def money_in_words(number) -> str:
-	whole, _, fraction = number.partition('.')  # Split the number and the fraction. Even if number is integer
-
-	out = '{0} dólares'.format(in_words(whole)[:-1] if whole[-1:] == '1' else in_words(whole))  # Ends with 1 then trim last char
-
-	if fraction and fraction[:2] not in ['0', '00']:  # same as float(number).is_integer(). check if 2 first digits are zeros
-		out += ' con {0}/100'.format(fraction[:2] + '0' if len(fraction[:2]) == 1 else fraction[:2])  # Fraction is one digit add a zero
-
-	return out.capitalize()
 
 
 @frappe.whitelist(allow_guest=False)

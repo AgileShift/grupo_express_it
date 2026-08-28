@@ -116,14 +116,11 @@ frappe.ui.form.on("Sales Invoice", {
 	async customer(frm) {
 		const customer = frm.doc.customer;
 
-		frm.doc.in_words = '';
 		frm.clear_table('items');
-
-		frm.refresh_fields(); // Refresh all changes
+		frm.set_value({total: 0.00, in_words: ''});
+		frm.refresh_fields();
 
 		if (!customer) {
-			frm.doc.customer_name = '';
-			frm.refresh_field('customer_name');
 			return;
 		}
 
@@ -142,7 +139,7 @@ frappe.ui.form.on("Sales Invoice", {
 		}
 	},
 
-	calculate_invoice_total_and_words(frm) {
+	async calculate_invoice_total_and_words(frm) {
 		frm.doc.total = frm.get_sum('items', 'amount');
 
 		if (frm.doc.total) { // If the amount is valid and not zero.
@@ -154,12 +151,7 @@ frappe.ui.form.on("Sales Invoice", {
 				frm.doc.total = Math.ceil(frm.doc.total);
 			}
 
-			frappe.call({
-				method: 'grupo_express_it.grupo_express_invoice_tool.doctype.sales_invoice.sales_invoice.money_in_words',
-				args: {number: frm.doc.total},
-				callback: (r) => frm.doc.in_words = r.message,
-				async: false  // TODO: 26 Dic 2023 -> check why this is needed
-			});
+			await frm.call('money_in_words');
 		} else {
 			frm.doc.in_words = '';
 		}
