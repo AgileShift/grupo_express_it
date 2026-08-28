@@ -16,8 +16,11 @@ class PaymentEntry(Document):
 		currency: DF.Link
 		customer: DF.Link
 		entries: DF.Table[PaymentEntryLine]
+		exchange_rate: DF.Float
 		mode_of_payment: DF.Link
 		posting_date: DF.Date
+		total_allocated_amount: DF.Currency
+		unallocated_amount: DF.Currency
 	# end: auto-generated types
 
 	pass

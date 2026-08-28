@@ -15,10 +15,16 @@
   "column_break_uooh",
   "mode_of_payment",
   "currency",
+  "exchange_rate",
   "column_break_cjbr",
   "amount",
   "section_break_wtpx",
-  "entries"
+  "entries",
+  "section_break_gvbp",
+  "column_break_siwb",
+  "column_break_rhah",
+  "total_allocated_amount",
+  "unallocated_amount"
  ],
  "fields": [
   {
@@ -53,7 +59,7 @@
   },
   {
    "bold": 1,
-   "default": "now",
+   "default": "Today",
    "fieldname": "posting_date",
    "fieldtype": "Date",
    "in_list_view": 1,
@@ -68,6 +74,7 @@
   },
   {
    "bold": 1,
+   "default": "0.00",
    "fieldname": "amount",
    "fieldtype": "Currency",
    "in_list_view": 1,
@@ -121,13 +128,54 @@
    "options": "Mode Of Payment",
    "reqd": 1,
    "sticky": 1
+  },
+  {
+   "default": "1",
+   "fieldname": "exchange_rate",
+   "fieldtype": "Float",
+   "label": "Exchange Rate",
+   "non_negative": 1,
+   "precision": "6",
+   "reqd": 1
+  },
+  {
+   "bold": 1,
+   "default": "0.00",
+   "fieldname": "total_allocated_amount",
+   "fieldtype": "Currency",
+   "label": "Total Allocated Amount",
+   "non_negative": 1,
+   "read_only": 1,
+   "reqd": 1
+  },
+  {
+   "fieldname": "section_break_gvbp",
+   "fieldtype": "Section Break"
+  },
+  {
+   "bold": 1,
+   "default": "0.00",
+   "fieldname": "unallocated_amount",
+   "fieldtype": "Currency",
+   "label": "Unallocated Amount",
+   "non_negative": 1,
+   "read_only": 1,
+   "reqd": 1
+  },
+  {
+   "fieldname": "column_break_siwb",
+   "fieldtype": "Column Break"
+  },
+  {
+   "fieldname": "column_break_rhah",
+   "fieldtype": "Column Break"
   }
  ],
  "grid_page_length": 50,
  "index_web_pages_for_search": 1,
  "is_submittable": 1,
  "links": [],
- "modified": "2026-08-27 22:27:11.418571",
+ "modified": "2026-08-28 11:22:01.769545",
  "modified_by": "Administrator",
  "module": "Grupo Express Invoice Tool",
  "name": "Payment Entry",
