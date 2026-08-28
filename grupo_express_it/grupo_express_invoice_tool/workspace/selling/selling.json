@@ -1,7 +1,7 @@
 {
  "app": "grupo_express_it",
  "charts": [],
- "content": "[{\"id\":\"D9STkrh5Zg\",\"type\":\"header\",\"data\":{\"text\":\"<span class=\\\"h4\\\">Selling Management</span>\",\"col\":12}},{\"id\":\"cqst0X5msd\",\"type\":\"spacer\",\"data\":{\"col\":12}},{\"id\":\"38uAzBALhp\",\"type\":\"shortcut\",\"data\":{\"shortcut_name\":\"Sales Invoice\",\"col\":4}},{\"id\":\"eR0PhHkvaq\",\"type\":\"shortcut\",\"data\":{\"shortcut_name\":\"Customer\",\"col\":4}},{\"id\":\"cLGRkzzNe5\",\"type\":\"shortcut\",\"data\":{\"shortcut_name\":\"Item\",\"col\":4}},{\"id\":\"UJZNM6duWR\",\"type\":\"spacer\",\"data\":{\"col\":12}},{\"id\":\"mbQPMtX7Pc\",\"type\":\"card\",\"data\":{\"card_name\":\"Reports\",\"col\":4}}]",
+ "content": "[{\"id\":\"D9STkrh5Zg\",\"type\":\"header\",\"data\":{\"text\":\"<span class=\\\"h4\\\">Selling Management</span>\",\"col\":12}},{\"id\":\"cqst0X5msd\",\"type\":\"spacer\",\"data\":{\"col\":12}},{\"id\":\"38uAzBALhp\",\"type\":\"shortcut\",\"data\":{\"shortcut_name\":\"Sales Invoice\",\"col\":4}},{\"id\":\"eR0PhHkvaq\",\"type\":\"shortcut\",\"data\":{\"shortcut_name\":\"Customer\",\"col\":4}},{\"id\":\"cLGRkzzNe5\",\"type\":\"shortcut\",\"data\":{\"shortcut_name\":\"Item\",\"col\":4}},{\"id\":\"UJZNM6duWR\",\"type\":\"spacer\",\"data\":{\"col\":12}},{\"id\":\"lpqVEXWIpw\",\"type\":\"shortcut\",\"data\":{\"shortcut_name\":\"Payment Entry\",\"col\":3}},{\"id\":\"hzFY-aFclz\",\"type\":\"spacer\",\"data\":{\"col\":12}},{\"id\":\"mbQPMtX7Pc\",\"type\":\"card\",\"data\":{\"card_name\":\"Reports\",\"col\":4}}]",
  "creation": "2021-04-07 09:08:54.888627",
  "custom_blocks": [],
  "docstatus": 0,
@@ -34,7 +34,7 @@
    "type": "Link"
   }
  ],
- "modified": "2026-08-23 10:15:16.435388",
+ "modified": "2026-08-27 22:01:28.862030",
  "modified_by": "Administrator",
  "module": "Grupo Express Invoice Tool",
  "name": "Selling",
@@ -52,6 +52,14 @@
    "icon": "customer",
    "label": "Customer",
    "link_to": "Customer",
+   "type": "DocType"
+  },
+  {
+   "color": "Grey",
+   "doc_view": "List",
+   "label": "Payment Entry",
+   "link_to": "Payment Entry",
+   "stats_filter": "[]",
    "type": "DocType"
   },
   {
