@@ -17,7 +17,8 @@
   "currency",
   "exchange_rate",
   "column_break_cjbr",
-  "amount",
+  "received_amount",
+  "paid_amount",
   "section_break_wtpx",
   "entries",
   "section_break_gvbp",
@@ -73,24 +74,12 @@
    "label": "Type of Payment"
   },
   {
-   "bold": 1,
-   "default": "0.00",
-   "fieldname": "amount",
-   "fieldtype": "Currency",
-   "in_list_view": 1,
-   "in_standard_filter": 1,
-   "label": "Amount",
-   "non_negative": 1,
-   "options": "currency",
-   "precision": "2",
-   "reqd": 1
-  },
-  {
    "fieldname": "column_break_uooh",
    "fieldtype": "Column Break"
   },
   {
    "bold": 1,
+   "depends_on": "mode_of_payment",
    "fetch_from": "mode_of_payment.currency",
    "fieldname": "currency",
    "fieldtype": "Link",
@@ -131,6 +120,7 @@
   },
   {
    "default": "1",
+   "depends_on": "eval: doc.currency != 'USD'",
    "fieldname": "exchange_rate",
    "fieldtype": "Float",
    "label": "Exchange Rate",
@@ -169,13 +159,41 @@
   {
    "fieldname": "column_break_rhah",
    "fieldtype": "Column Break"
+  },
+  {
+   "bold": 1,
+   "default": "0.00",
+   "depends_on": "mode_of_payment",
+   "fieldname": "received_amount",
+   "fieldtype": "Currency",
+   "in_list_view": 1,
+   "in_standard_filter": 1,
+   "label": "Received Amount",
+   "non_negative": 1,
+   "options": "currency",
+   "precision": "2",
+   "reqd": 1
+  },
+  {
+   "bold": 1,
+   "default": "0.00",
+   "depends_on": "eval: doc.currency != 'USD'",
+   "fieldname": "paid_amount",
+   "fieldtype": "Currency",
+   "in_list_view": 1,
+   "in_standard_filter": 1,
+   "label": "Paid Amount",
+   "non_negative": 1,
+   "precision": "2",
+   "read_only": 1,
+   "reqd": 1
   }
  ],
  "grid_page_length": 50,
  "index_web_pages_for_search": 1,
  "is_submittable": 1,
  "links": [],
- "modified": "2026-08-28 11:22:01.769545",
+ "modified": "2026-08-28 15:45:17.287220",
  "modified_by": "Administrator",
  "module": "Grupo Express Invoice Tool",
  "name": "Payment Entry",
