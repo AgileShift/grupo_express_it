@@ -1,5 +1,5 @@
 ### GET META DETAILS OF MESSAGE TEMPLATES
-GET https://graph.facebook.com/v24.0/{business_id}/message_templates
+GET https://graph.facebook.com/v26.0/{business_id}/message_templates
 Content-Type: "application/json",
 Authorization: Bearer {TOKEN}
 

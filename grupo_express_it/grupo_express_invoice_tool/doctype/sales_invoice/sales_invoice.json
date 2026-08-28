@@ -24,7 +24,8 @@
   "posting_time",
   "section_break_xcnw",
   "whatsapp",
-  "column_break_bcpz"
+  "column_break_bcpz",
+  "amended_from"
  ],
  "fields": [
   {
@@ -140,21 +141,40 @@
   {
    "fieldname": "column_break_bcpz",
    "fieldtype": "Column Break"
+  },
+  {
+   "fieldname": "amended_from",
+   "fieldtype": "Link",
+   "label": "Amended From",
+   "no_copy": 1,
+   "options": "Sales Invoice",
+   "print_hide": 1,
+   "read_only": 1,
+   "search_index": 1
   }
  ],
+ "is_submittable": 1,
  "links": [
   {
-   "group": "Files",
-   "link_doctype": "File",
-   "link_fieldname": "attached_to_name"
+   "group": "Payment Entry",
+   "is_child_table": 1,
+   "link_doctype": "Payment Entry Line",
+   "link_fieldname": "reference_name",
+   "parent_doctype": "Payment Entry",
+   "table_fieldname": "entries"
   },
   {
    "group": "WhatsApp",
    "link_doctype": "WhatsApp Message",
    "link_fieldname": "reference_name"
+  },
+  {
+   "group": "Files",
+   "link_doctype": "File",
+   "link_fieldname": "attached_to_name"
   }
  ],
- "modified": "2026-08-27 13:53:01.980374",
+ "modified": "2026-08-27 22:00:06.733212",
  "modified_by": "Administrator",
  "module": "Grupo Express Invoice Tool",
  "name": "Sales Invoice",

@@ -16,7 +16,7 @@ function show_customer_alias_dialog(frm, customer, aliases) {
 			fieldtype: 'HTML',
 			options: `
 				<p>${__('Selecciona el nombre que aparecerá en el recibo.')}</p>
-				<p class="text-muted">${__('Cliente')}: ${frappe.utils.escape_html(customer)}</p>
+				<p class="text-muted">${__('Customer')}: ${frappe.utils.escape_html(customer)}</p>
 				<table class="table table-bordered">
 					<thead>
 						<tr>

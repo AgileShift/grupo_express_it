@@ -16,6 +16,7 @@ class SalesInvoice(Document):
 		from frappe.types import DF
 		from grupo_express_it.grupo_express_invoice_tool.doctype.sales_invoice_item.sales_invoice_item import SalesInvoiceItem
 
+		amended_from: DF.Link | None
 		customer: DF.Link
 		customer_name: DF.Data
 		in_words: DF.Data | None
