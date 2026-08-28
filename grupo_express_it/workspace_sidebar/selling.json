@@ -76,9 +76,21 @@
    "link_type": "DocType",
    "show_arrow": 0,
    "type": "Link"
+  },
+  {
+   "child": 1,
+   "collapsible": 1,
+   "icon": "credit-card",
+   "indent": 0,
+   "keep_closed": 0,
+   "label": "Mode Of Payment",
+   "link_to": "Mode Of Payment",
+   "link_type": "DocType",
+   "show_arrow": 0,
+   "type": "Link"
   }
  ],
- "modified": "2026-08-28 17:27:41.080687",
+ "modified": "2026-08-28 17:34:50.411574",
  "modified_by": "Administrator",
  "module": "Grupo Express Invoice Tool",
  "name": "Selling",
