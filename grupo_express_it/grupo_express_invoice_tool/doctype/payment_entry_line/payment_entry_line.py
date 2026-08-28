@@ -11,6 +11,7 @@ class PaymentEntryLine(Document):
 		from frappe.types import DF
 
 		allocated_amount: DF.Currency
+		currency: DF.Link
 		outstanding_amount: DF.Currency
 		parent: DF.Data
 		parentfield: DF.Data

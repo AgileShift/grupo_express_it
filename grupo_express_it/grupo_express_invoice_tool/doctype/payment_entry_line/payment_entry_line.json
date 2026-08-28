@@ -9,8 +9,12 @@
  "field_order": [
   "reference_doctype",
   "reference_name",
+  "column_break_avxg",
+  "currency",
+  "section_break_eruw",
   "total_amount",
   "outstanding_amount",
+  "column_break_sjny",
   "allocated_amount"
  ],
  "fields": [
@@ -26,6 +30,7 @@
    "reqd": 1
   },
   {
+   "bold": 1,
    "fieldname": "reference_name",
    "fieldtype": "Link",
    "in_list_view": 1,
@@ -42,10 +47,12 @@
    "in_list_view": 1,
    "label": "Total Amount",
    "non_negative": 1,
+   "options": "currency",
    "read_only": 1,
    "reqd": 1
   },
   {
+   "bold": 1,
    "columns": 2,
    "fetch_from": "reference_name.outstanding_amount",
    "fieldname": "outstanding_amount",
@@ -53,6 +60,7 @@
    "in_list_view": 1,
    "label": "Outstanding Amount",
    "non_negative": 1,
+   "options": "currency",
    "read_only": 1,
    "reqd": 1
   },
@@ -64,15 +72,39 @@
    "in_list_view": 1,
    "label": "Allocated Amount",
    "non_negative": 1,
+   "options": "currency",
    "precision": "2",
    "reqd": 1
+  },
+  {
+   "bold": 1,
+   "fetch_from": "reference_name.currency",
+   "fieldname": "currency",
+   "fieldtype": "Link",
+   "label": "Currency",
+   "link_filters": "[[\"Currency\",\"enabled\",\"=\",1]]",
+   "options": "Currency",
+   "read_only": 1,
+   "reqd": 1
+  },
+  {
+   "fieldname": "column_break_avxg",
+   "fieldtype": "Column Break"
+  },
+  {
+   "fieldname": "section_break_eruw",
+   "fieldtype": "Section Break"
+  },
+  {
+   "fieldname": "column_break_sjny",
+   "fieldtype": "Column Break"
   }
  ],
  "grid_page_length": 50,
  "index_web_pages_for_search": 1,
  "istable": 1,
  "links": [],
- "modified": "2026-08-28 11:41:16.012787",
+ "modified": "2026-08-28 12:58:32.079041",
  "modified_by": "Administrator",
  "module": "Grupo Express Invoice Tool",
  "name": "Payment Entry Line",
