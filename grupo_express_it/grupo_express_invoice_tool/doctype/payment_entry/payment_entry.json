@@ -1,8 +1,10 @@
 {
  "actions": [],
  "allow_bulk_edit": 1,
+ "allow_copy": 1,
  "allow_rename": 1,
  "creation": "2026-08-27 21:01:02.231051",
+ "default_view": "List",
  "doctype": "DocType",
  "engine": "InnoDB",
  "field_order": [
@@ -193,7 +195,7 @@
  "index_web_pages_for_search": 1,
  "is_submittable": 1,
  "links": [],
- "modified": "2026-08-28 15:45:17.287220",
+ "modified": "2026-08-29 09:29:50.486088",
  "modified_by": "Administrator",
  "module": "Grupo Express Invoice Tool",
  "name": "Payment Entry",

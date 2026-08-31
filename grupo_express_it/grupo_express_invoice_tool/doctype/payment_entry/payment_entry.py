@@ -37,6 +37,16 @@ class PaymentEntry(Document):
 		self._validate_received_amount()
 		self._validate_allocations()
 
+	def before_submit(self):
+		invoices = self._get_locked_invoices()
+		self._validate_locked_invoices(invoices)
+		self._apply_invoice_allocations(invoices, -1)
+
+	def before_cancel(self):
+		invoices = self._get_locked_invoices()
+		self._validate_locked_invoices_for_cancel(invoices)
+		self._apply_invoice_allocations(invoices, 1)
+
 	@frappe.whitelist(allow_guest=False)
 	def allocate_received_amount_to_references(self) -> None:
 		self._set_paid_amount()
@@ -54,15 +64,21 @@ class PaymentEntry(Document):
 	def _set_paid_amount(self) -> None:
 		received_amount = flt(self.received_amount, 2)
 
+		if self.currency not in ("USD", "NIO"):
+			frappe.throw(_("Payment Currency must be USD or NIO."))
+
 		if self.currency == "USD":
 			self.exchange_rate = 1
 			self.paid_amount = received_amount
 			return
 
-		self.exchange_rate = flt(self.exchange_rate, 6) or 36.624300
+		self.exchange_rate = flt(self.exchange_rate, 6)
 
 		if self.exchange_rate <= 0:
 			frappe.throw(_("Exchange Rate must be greater than zero."))
+
+		if self.currency == "NIO" and self.exchange_rate <= 1:
+			frappe.throw(_("Exchange Rate for NIO must be greater than one."))
 
 		self.paid_amount = flt(received_amount / self.exchange_rate, 2)
 
@@ -97,6 +113,50 @@ class PaymentEntry(Document):
 			frappe.throw(_("Sales Invoices must use USD."))
 
 		return invoices
+
+	def _get_locked_invoices(self) -> dict:
+		reference_names = sorted(
+			row.reference_name for row in self._get_reference_rows()
+		)
+
+		return {
+			name: frappe.get_doc("Sales Invoice", name, for_update=True)
+			for name in reference_names
+		}
+
+	def _validate_locked_invoice_headers(self, invoices: dict) -> None:
+		for invoice in invoices.values():
+			if invoice.customer != self.customer or invoice.docstatus != 1:
+				frappe.throw(_("One or more Sales Invoices are invalid."))
+
+			if (invoice.currency or "USD") != "USD":
+				frappe.throw(_("Sales Invoices must use USD."))
+
+	def _validate_locked_invoices(self, invoices: dict) -> None:
+		self._validate_locked_invoice_headers(invoices)
+
+		self._set_reference_details(invoices)
+		self._set_totals()
+		self._validate_allocations()
+
+	def _validate_locked_invoices_for_cancel(self, invoices: dict) -> None:
+		self._validate_locked_invoice_headers(invoices)
+
+		for row in self._get_reference_rows():
+			invoice = invoices[row.reference_name]
+			restored_amount = flt(
+				invoice.outstanding_amount + flt(row.allocated_amount, 2), 2
+			)
+
+			if restored_amount > flt(invoice.total, 2):
+				frappe.throw(_("Cancelling this Payment Entry would exceed the invoice total."))
+
+	def _apply_invoice_allocations(self, invoices: dict, multiplier: int) -> None:
+		for row in self._get_reference_rows():
+			delta = flt(multiplier * flt(row.allocated_amount, 2), 2)
+
+			if delta:
+				invoices[row.reference_name]._apply_outstanding_delta(delta)
 
 	def _set_reference_details(self, invoices: dict) -> None:
 		for row in self._get_reference_rows():
@@ -142,8 +202,8 @@ class PaymentEntry(Document):
 		for row in self.entries:
 			allocated_amount = flt(row.allocated_amount, 2)
 
-			if allocated_amount < 0:
-				frappe.throw(_("Allocated Amount cannot be negative."))
+			if allocated_amount <= 0:
+				frappe.throw(_("Allocated Amount must be greater than zero."))
 
 			if allocated_amount > flt(row.outstanding_amount, 2):
 				frappe.throw(

@@ -4,9 +4,11 @@ frappe.ui.form.on("Payment Entry", {
 		frm.set_currency_labels(['paid_amount', 'total_allocated_amount', 'unallocated_amount'], 'USD');
 	},
 
-	customer(frm) {
+	async customer(frm) {
 		frm.clear_table('entries');
 		frm.refresh_fields();
+
+		await frm.events.allocate_received_amount_to_references(frm);
 	},
 
 	async received_amount(frm) {
@@ -25,8 +27,9 @@ frappe.ui.form.on("Payment Entry", {
 
 	allocate_received_amount_to_references(frm) {
 		if (!frm.doc.customer || !frm.doc.currency) return;
+		if (frm.doc.currency === "NIO" && Number(frm.doc.exchange_rate) <= 1) return;
 
-		frm.call("allocate_received_amount_to_references");
+		return frm.call("allocate_received_amount_to_references");
 	},
 
 	async calculate_payment_totals(frm) {
