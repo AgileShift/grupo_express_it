@@ -71,7 +71,7 @@ class StockSalesInvoice(Document):
 		raise NotImplementedError('Por ahora no esta permitida la cancelacion.')
 
 	# CUSTOM METHOD
-	@frappe.whitelist()
+	@frappe.whitelist(allow_guest=False)
 	def update_actual_qty(self, for_update: bool) -> Tuple[List[str], Dict[str, float]]:
 		""" Update the actual_qty field in the items table from the Policy Item """
 		policy_items = frappe.get_all(
@@ -92,7 +92,7 @@ class StockSalesInvoice(Document):
 		return list(policies), policy_item_map  # This return can help us reduce loops
 
 
-@frappe.whitelist(methods=['GET'])
+@frappe.whitelist(methods=['GET'], allow_guest=False)
 @frappe.validate_and_sanitize_search_inputs
 def get_policy_items(doctype, txt, searchfield, start, page_len, filters, as_dict):
 	"""Returns items to be used for calculating taxes and charges"""
