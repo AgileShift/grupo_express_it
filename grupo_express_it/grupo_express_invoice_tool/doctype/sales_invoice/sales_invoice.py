@@ -3,7 +3,7 @@ import time
 import frappe
 from frappe import _
 from frappe.model.document import Document
-from frappe.utils import in_words
+from frappe.utils import flt, in_words
 
 
 class SalesInvoice(Document):
@@ -53,6 +53,25 @@ class SalesInvoice(Document):
 		else:
 			self.status = "Unpaid"
 
+	def _apply_outstanding_delta(self, delta: float) -> None:
+		if self.docstatus != 1:
+			frappe.throw(_("Sales Invoice must be submitted."))
+
+		outstanding_amount = flt(self.outstanding_amount + delta, 2)
+
+		if outstanding_amount < 0 or outstanding_amount > flt(self.total, 2):
+			frappe.throw(_("Outstanding Amount must remain between zero and Total."))
+
+		self.outstanding_amount = outstanding_amount
+		self._set_status()
+		self.db_set(
+			{
+				"outstanding_amount": self.outstanding_amount,
+				"status": self.status,
+			},
+			notify=True,
+		)
+
 	@frappe.whitelist(allow_guest=False)
 	def money_in_words(self) -> None:
 		whole, _, fraction = str(self.total).partition('.')  # Split the number and the fraction. Even if number is integer
@@ -69,14 +88,6 @@ class SalesInvoice(Document):
 def send_sales_invoice(doc_name: str, customer_name: str, total: float) -> None:
 	template_name = 'sales_invoice_whatsapp_notification-es'
 	template_status = frappe.db.get_value('WhatsApp Templates', template_name, 'status')
-
-	message = (
-		f"Hola!\n\n"
-		f"Factura de *{customer_name}*\n"
-		f"*{doc_name}*\n"
-		f"Por un valor de *{frappe.utils.fmt_money(total, precision=2, currency='USD')}*\n\n"
-		f"Adjunto el documento."
-	)
 
 	# Remember -> No Diacritics in file names, because URL encoding issues may arise
 	pdf_bytes = frappe.get_print('Sales Invoice', doc_name, print_format='Sales Invoice WhatsApp', as_pdf=True, pdf_options={}, pdf_generator='wkhtmltopdf')
@@ -109,7 +120,6 @@ def send_sales_invoice(doc_name: str, customer_name: str, total: float) -> None:
 			whatsapp_message.template = template_name
 		else:
 			whatsapp_message.use_template = False
-			whatsapp_message.message = message
 
 		whatsapp_message.insert(ignore_permissions=True)
 		time.sleep(0.15)  # To avoid rate limiting

@@ -205,7 +205,7 @@
    "link_fieldname": "attached_to_name"
   }
  ],
- "modified": "2026-08-28 16:49:03.778084",
+ "modified": "2026-08-29 09:33:07.492340",
  "modified_by": "Administrator",
  "module": "Grupo Express Invoice Tool",
  "name": "Sales Invoice",
@@ -226,7 +226,7 @@
   }
  ],
  "row_format": "Dynamic",
- "search_fields": "customer,customer_name",
+ "search_fields": "customer,customer_name,status,outstanding_amount",
  "show_name_in_global_search": 1,
  "sort_field": "modified",
  "sort_order": "DESC",
