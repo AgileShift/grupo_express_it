@@ -632,6 +632,22 @@ msgstr "Costos CIF de Póliza"
 msgid "Policy Date"
 msgstr "Fecha de Póliza"
 
+#: grupo_express_it/stock_management/doctype/stock_sales_invoice/stock_sales_invoice.js:72
+msgid "Policy Date From"
+msgstr "Fecha de Póliza Desde"
+
+#: grupo_express_it/stock_management/doctype/stock_sales_invoice/stock_sales_invoice.py:113
+msgid "Policy Date From cannot be after Policy Date To."
+msgstr "La fecha Desde de la póliza no puede ser posterior a la fecha Hasta."
+
+#: grupo_express_it/stock_management/doctype/stock_sales_invoice/stock_sales_invoice.py:104
+msgid "Policy Date requires a From and To date."
+msgstr "Fecha de Póliza requiere una fecha Desde y Hasta."
+
+#: grupo_express_it/stock_management/doctype/stock_sales_invoice/stock_sales_invoice.js:74
+msgid "Policy Date To"
+msgstr "Fecha de Póliza Hasta"
+
 #. Name of a DocType
 #. Label of the policy_item (Link) field in DocType 'Stock Sales Invoice Item'
 #: grupo_express_it/stock_management/doctype/policy_item/policy_item.json
@@ -930,4 +946,3 @@ msgstr ""
 #: grupo_express_it/stock_management/doctype/stock_sales_invoice_item/stock_sales_invoice_item.json
 msgid "Yardas"
 msgstr ""
-
