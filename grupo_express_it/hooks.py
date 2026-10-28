@@ -1,27 +1,27 @@
 app_name = "grupo_express_it"
-app_title = "Grupo Express Invoice Tool"
+app_title = "Grupo Express"
 app_publisher = "Agile Shift"
-app_description = "Invoice Tool"
-app_email = "contacto@gruporeal.org"
-app_license = "MIT"
+app_description = "Grupo Express Business Tools"
+app_email = "dev@gruporeal.org"
+app_license = "mit"
 
 # Apps
 # ------------------
 
 required_apps = [
-	'shridarpatil/frappe_whatsapp'
+	'whatsapp'
 ]
 
 # Each item in the list will be shown as an app in the apps page
-# add_to_apps_screen = [
-# 	{
-# 		"name": "grupo_express",
-# 		"logo": "/assets/grupo_express/logo.png",
-# 		"title": "Grupo Express IT",
-# 		"route": "/grupo_express",
-# 		"has_permission": "grupo_express.api.permission.has_app_permission"
-# 	}
-# ]
+add_to_apps_screen = [
+	{
+		"name": app_name,
+		"logo": "/assets/grupo_express/logo.png",
+		"title": app_title,
+		"route": "desk/selling",
+		"sequence_id": 99
+	}
+]
 
 # Includes in <head>
 # ------------------
@@ -164,4 +164,4 @@ require_type_annotated_api_methods = True
 # Translation
 # ------------
 # List of apps whose translatable strings should be excluded from this app's translations.
-ignore_translatable_strings_from = ["frappe"]
+ignore_translatable_strings_from = ["frappe", "erpnext", "hrms"]

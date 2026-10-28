@@ -1,13 +1,15 @@
 [project]
 name = "grupo_express_it"
 authors = [
-    { name = "Agile Shift", email = "contacto@gruporeal.org" }
+    { name = "Agile Shift", email = "dev@gruporeal.org" }
 ]
-description = "Grupo Express Invoice Tool"
+description = "Grupo Express Business Tools"
 requires-python = ">=3.14"
 readme = "README.md"
 dynamic = ["version"]
 dependencies = []
+
+[project.urls]
 
 [build-system]
 requires = ["flit_core >=3.4,<4"]
@@ -22,7 +24,7 @@ build-backend = "flit_core.buildapi"
 packages = []
 
 [tool.bench.frappe-dependencies]
-frappe = ">=16.0.0,<17.0.0"
+frappe = ">=16.50.0,<17.0.0"
 
 [tool.ruff]
 line-length = 110
