@@ -1,0 +1,32 @@
+{
+ "app": "grupo_express_it",
+ "creation": "2026-10-28 17:44:09.495817",
+ "docstatus": 0,
+ "doctype": "Dock",
+ "idx": 0,
+ "items": [
+  {
+   "added": 1,
+   "hidden": 0,
+   "icon": "money-coins-1",
+   "link_to": "Selling",
+   "link_type": "Sidebar",
+   "title": "Selling"
+  },
+  {
+   "added": 1,
+   "hidden": 0,
+   "icon": "boxes",
+   "link_to": "Stock",
+   "link_type": "Sidebar",
+   "title": "Stock"
+  }
+ ],
+ "modified": "2026-10-28 17:46:42.047122",
+ "modified_by": "Administrator",
+ "mount_on": "",
+ "name": "grupo_express_it",
+ "owner": "Administrator",
+ "standard": 1,
+ "user": ""
+}
