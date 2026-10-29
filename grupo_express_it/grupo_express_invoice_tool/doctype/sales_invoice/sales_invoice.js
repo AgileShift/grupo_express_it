@@ -98,7 +98,7 @@ frappe.ui.form.on("Sales Invoice", {
 			}
 
 			frappe.call({
-				method: 'grupo_express_it.grupo_express_invoice_tool.doctype.sales_invoice.sales_invoice.send_sales_invoice',
+				method: 'grupo_express_it.grupo_express_invoice_tool.doctype.sales_invoice.whatsapp.send_sales_invoice',
 				args: {
 					doc_name: frm.doc.name,
 					customer_name: frm.doc.customer,

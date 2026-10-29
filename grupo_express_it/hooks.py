@@ -16,7 +16,7 @@ required_apps = [
 add_to_apps_screen = [
 	{
 		"name": app_name,
-		"logo": "/assets/grupo_express/logo.png",
+		"logo": "/assets/frappe/icons/desktop_icons/solid/automation.svg",
 		"title": app_title,
 		"route": "desk/selling",
 		"sequence_id": 99

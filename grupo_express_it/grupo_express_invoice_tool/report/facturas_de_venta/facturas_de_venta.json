@@ -1,5 +1,6 @@
 {
  "add_total_row": 1,
+ "add_translate_data": 0,
  "columns": [
   {
    "fieldname": "name",
@@ -45,10 +46,11 @@
   }
  ],
  "creation": "2021-04-29 12:11:30.960024",
- "disable_prepared_report": 0,
+ "disable_prepared_report_automation": 0,
  "disabled": 0,
  "docstatus": 0,
  "doctype": "Report",
+ "doctype_to_sync": [],
  "filters": [
   {
    "fieldname": "exp",
@@ -68,7 +70,8 @@
  "idx": 0,
  "is_standard": "Yes",
  "json": "{}",
- "modified": "2023-07-26 12:42:54.825200",
+ "letter_head": null,
+ "modified": "2026-10-28 18:21:10.682710",
  "modified_by": "Administrator",
  "module": "Grupo Express Invoice Tool",
  "name": "Facturas de Venta",
@@ -82,5 +85,7 @@
   {
    "role": "System Manager"
   }
- ]
+ ],
+ "snapshot_report": 0,
+ "timeout": 0
 }
