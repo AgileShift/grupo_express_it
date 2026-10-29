@@ -91,14 +91,6 @@ app_include_js = "grupo_express.bundle.js"
 # 	"Event": "frappe.desk.doctype.event.event.has_permission",
 # }
 
-# DocType Class
-# ---------------
-# Override standard doctype classes
-
-override_doctype_class = {
-	"WhatsApp Message": "grupo_express_it.config.overrides.CustomWhatsAppMessage"
-}
-
 # Document Events
 # ---------------
 # Hook on document methods and events
