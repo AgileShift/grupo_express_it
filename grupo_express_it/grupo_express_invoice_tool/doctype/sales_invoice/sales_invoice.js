@@ -97,18 +97,16 @@ frappe.ui.form.on("Sales Invoice", {
 				return;
 			}
 
-			frappe.call({
+			frappe.show_progress(__('Enviando por WhatsApp'), 0, 100, __('Preparando envío...'));
+			return frappe.call({
 				method: 'grupo_express_it.grupo_express_invoice_tool.doctype.sales_invoice.whatsapp.send_sales_invoice',
 				args: {
 					doc_name: frm.doc.name,
 					customer_name: frm.doc.customer,
 					total: frm.doc.total,
 				},
-				freeze: true,
-				freeze_message: 'Conectando con Meta...',
-				callback: () => {
-					frm.refresh(); // This updates the connections
-				}
+				callback: () => frm.refresh(),
+				always: () => frappe.hide_progress(),
 			});
 		});
 	},
