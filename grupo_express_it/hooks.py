@@ -8,6 +8,7 @@ app_license = "mit"
 # Apps
 # ------------------
 
+# Sales Invoice uses the WhatsApp app to send invoice PDFs.
 required_apps = [
 	'whatsapp'
 ]
